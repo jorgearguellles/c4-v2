@@ -1,0 +1,108 @@
+{
+  "name": "c4-logistica-website",
+  "version": "1.0.0",
+  "description": "Sitio web estático moderno para C4 Logística y Transporte - Servicios logísticos integrales",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "start": "npm run dev",
+    "build": "npm run optimize:images && npm run minify:css && npm run minify:js",
+    "optimize:images": "imagemin 'src/images/*.{jpg,png}' --out-dir='src/images/optimized' --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant",
+    "minify:css": "cleancss -o dist/css/styles.min.css src/css/styles.css",
+    "minify:js": "terser src/js/main.js -o dist/js/main.min.js --compress --mangle",
+    "validate:html": "html-validate index.html",
+    "validate:css": "stylelint 'src/css/**/*.css'",
+    "validate:js": "eslint 'src/js/**/*.js'",
+    "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "test:accessibility": "axe http://localhost:3000",
+    "webp:convert": "imagemin 'src/images/*.{jpg,png}' --out-dir='src/images' --plugin=imagemin-webp",
+    "serve:prod": "http-server -p 8080 -g",
+    "analyze:bundle": "bundlesize",
+    "format": "prettier --write 'src/**/*.{css,js}' '*.{html,md,json}'",
+    "lint": "npm run validate:html && npm run validate:css && npm run validate:js"
+  },
+  "keywords": [
+    "logística",
+    "transporte",
+    "almacenamiento",
+    "WMS",
+    "picking",
+    "packing",
+    "distribución",
+    "3PL",
+    "Colombia",
+    "Medellín",
+    "Bogotá"
+  ],
+  "author": "C4 Logística y Transporte",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c4logistica/website.git"
+  },
+  "homepage": "https://c4logistica.com",
+  "devDependencies": {
+    "@axe-core/cli": "^4.8.2",
+    "bundlesize": "^0.18.1",
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.57.0",
+    "html-validate": "^8.7.4",
+    "http-server": "^14.1.1",
+    "imagemin": "^8.0.1",
+    "imagemin-cli": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^7.0.0",
+    "lighthouse": "^11.4.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.1.1",
+    "stylelint": "^16.0.2",
+    "stylelint-config-standard": "^36.0.0",
+    "terser": "^5.26.0"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "bundlesize": [
+    {
+      "path": "src/css/styles.css",
+      "maxSize": "50kb"
+    },
+    {
+      "path": "src/js/main.js",
+      "maxSize": "30kb"
+    }
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "custom-property-pattern": null,
+      "selector-class-pattern": null
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  }
+} 

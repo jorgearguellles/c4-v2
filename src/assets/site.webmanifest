@@ -1,0 +1,96 @@
+{
+  "name": "C4 Logística y Transporte",
+  "short_name": "C4 Logística",
+  "description": "Servicios logísticos integrales con tecnología WMS, almacenamiento FIFO/LIFO, picking y distribución. Las 4C que mueven tu negocio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#00B04A",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es",
+  "categories": ["logistics", "transport", "business"],
+  "icons": [
+    {
+      "src": "/src/assets/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/favicon-32x32.png", 
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/src/assets/android-chrome-512x512.png",
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/src/assets/screenshot-mobile.png",
+      "sizes": "320x640",
+      "type": "image/png",
+      "platform": "narrow"
+    },
+    {
+      "src": "/src/assets/screenshot-desktop.png", 
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contactar por WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Contacta directamente por WhatsApp",
+      "url": "https://wa.me/573007377368",
+      "icons": [
+        {
+          "src": "/src/images/whatsapp-icon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Ver Servicios",
+      "short_name": "Servicios", 
+      "description": "Conoce nuestros servicios logísticos",
+      "url": "/#servicios",
+      "icons": [
+        {
+          "src": "/src/assets/shortcut-services.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Ubicación",
+      "short_name": "Ubicación",
+      "description": "Ver nuestra ubicación en el mapa", 
+      "url": "/#ubicacion",
+      "icons": [
+        {
+          "src": "/src/assets/shortcut-location.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
+} 
