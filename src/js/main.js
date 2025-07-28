@@ -6,12 +6,12 @@
 // Configuration
 const CONFIG = {
   whatsapp: {
-    number: "573007377368",
+    number: '573007377368',
     messages: {
-      visit: "Hola, me interesa agendar una visita a sus instalaciones",
-      contact: "Hola, me interesa conocer más sobre sus servicios logísticos",
+      visit: 'Hola, me interesa agendar una visita a sus instalaciones',
+      contact: 'Hola, me interesa conocer más sobre sus servicios logísticos',
       quote:
-        "Hola, me gustaría solicitar una cotización para servicios logísticos",
+        'Hola, me gustaría solicitar una cotización para servicios logísticos',
     },
   },
   maps: {
@@ -21,7 +21,7 @@ const CONFIG = {
   animation: {
     observerOptions: {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
+      rootMargin: '0px 0px -50px 0px',
     },
   },
 };
@@ -30,14 +30,14 @@ const CONFIG = {
  * DOM Elements
  */
 const elements = {
-  header: document.getElementById("header"),
-  heroSection: document.getElementById("hero"),
+  header: document.getElementById('header'),
+  heroSection: document.getElementById('hero'),
   navLinks: document.querySelectorAll('a[href^="#"]'),
-  whatsappButtons: document.querySelectorAll(".btn--whatsapp"),
-  videoPlayButton: document.querySelector(".video-container__play-btn"),
-  mapContainer: document.getElementById("map"),
+  whatsappButtons: document.querySelectorAll('.btn--whatsapp'),
+  videoPlayButton: document.querySelector('.video-container__play-btn'),
+  mapContainer: document.getElementById('map'),
   observableElements: document.querySelectorAll(
-    "section, .service-card, .pillar"
+    'section, .service-card, .pillar'
   ),
 };
 
@@ -72,12 +72,15 @@ const utils = {
         lastRan = Date.now();
       } else {
         clearTimeout(lastFunc);
-        lastFunc = setTimeout(() => {
-          if (Date.now() - lastRan >= limit) {
-            func.apply(this, args);
-            lastRan = Date.now();
-          }
-        }, limit - (Date.now() - lastRan));
+        lastFunc = setTimeout(
+          () => {
+            if (Date.now() - lastRan >= limit) {
+              func.apply(this, args);
+              lastRan = Date.now();
+            }
+          },
+          limit - (Date.now() - lastRan)
+        );
       }
     };
   },
@@ -114,10 +117,10 @@ const headerScrollHandler = () => {
 
   const handleScroll = utils.throttle(() => {
     const scrolled = window.scrollY > 100;
-    header.classList.toggle("scrolled", scrolled);
+    header.classList.toggle('scrolled', scrolled);
   }, 100);
 
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener('scroll', handleScroll);
 };
 
 /**
@@ -125,9 +128,9 @@ const headerScrollHandler = () => {
  */
 const smoothScrolling = () => {
   elements.navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetId = link.getAttribute("href");
+      const targetId = link.getAttribute('href');
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
@@ -136,7 +139,7 @@ const smoothScrolling = () => {
 
         window.scrollTo({
           top: targetPosition,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }
     });
@@ -152,7 +155,7 @@ const animationObserver = () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in-up");
+        entry.target.classList.add('fade-in-up');
         // Unobserve element after animation
         observer.unobserve(entry.target);
       }
@@ -169,27 +172,27 @@ const animationObserver = () => {
  */
 const whatsappIntegration = () => {
   elements.whatsappButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
+    button.addEventListener('click', (e) => {
       e.preventDefault();
 
       // Determine message type based on button context
-      let messageType = "contact";
-      if (button.closest(".hero")) {
-        messageType = "visit";
-      } else if (button.closest(".footer")) {
-        messageType = "contact";
+      let messageType = 'contact';
+      if (button.closest('.hero')) {
+        messageType = 'visit';
+      } else if (button.closest('.footer')) {
+        messageType = 'contact';
       }
 
       const message = CONFIG.whatsapp.messages[messageType];
       const whatsappURL = utils.generateWhatsAppURL(message);
 
       // Open WhatsApp
-      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+      window.open(whatsappURL, '_blank', 'noopener,noreferrer');
 
       // Analytics tracking (if implemented)
-      if (typeof gtag !== "undefined") {
-        gtag("event", "whatsapp_click", {
-          event_category: "engagement",
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', {
+          event_category: 'engagement',
           event_label: messageType,
         });
       }
@@ -203,11 +206,11 @@ const whatsappIntegration = () => {
 const videoPlayerHandler = () => {
   if (!elements.videoPlayButton) return;
 
-  elements.videoPlayButton.addEventListener("click", () => {
+  elements.videoPlayButton.addEventListener('click', () => {
     // For now, we'll show an alert. In production, this would open a video modal
     // or replace the thumbnail with an actual video player
     alert(
-      "Video player functionality - In production, this would open the warehouse tour video"
+      'Video player functionality - In production, this would open the warehouse tour video'
     );
 
     // Example of how to replace with video:
@@ -237,19 +240,19 @@ const googleMapsIntegration = () => {
       center: CONFIG.maps.center,
       styles: [
         {
-          featureType: "all",
-          elementType: "geometry.fill",
-          stylers: [{ weight: "2.00" }],
+          featureType: 'all',
+          elementType: 'geometry.fill',
+          stylers: [{ weight: '2.00' }],
         },
         {
-          featureType: "all",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#9c9c9c" }],
+          featureType: 'all',
+          elementType: 'geometry.stroke',
+          stylers: [{ color: '#9c9c9c' }],
         },
         {
-          featureType: "all",
-          elementType: "labels.text",
-          stylers: [{ visibility: "on" }],
+          featureType: 'all',
+          elementType: 'labels.text',
+          stylers: [{ visibility: 'on' }],
         },
       ],
     });
@@ -258,9 +261,9 @@ const googleMapsIntegration = () => {
     new google.maps.Marker({
       position: CONFIG.maps.center,
       map: map,
-      title: "C4 Logística y Transporte",
+      title: 'C4 Logística y Transporte',
       icon: {
-        url: "src/images/map-marker.svg",
+        url: 'src/images/map-marker.svg',
         scaledSize: new google.maps.Size(40, 40),
       },
     });
@@ -284,14 +287,14 @@ const googleMapsIntegration = () => {
     new google.maps.Marker({
       position: CONFIG.maps.center,
       map: map,
-    }).addListener("click", () => {
+    }).addListener('click', () => {
       infoWindow.open(map, marker);
     });
   };
 
   // Load Google Maps API if not already loaded
-  if (typeof google === "undefined" || typeof google.maps === "undefined") {
-    const script = document.createElement("script");
+  if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+    const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
     script.async = true;
     script.defer = true;
@@ -309,10 +312,10 @@ const googleMapsIntegration = () => {
  * Form Validation (for future contact forms)
  */
 const formValidation = () => {
-  const forms = document.querySelectorAll("form");
+  const forms = document.querySelectorAll('form');
 
   forms.forEach((form) => {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const formData = new FormData(form);
@@ -320,20 +323,20 @@ const formValidation = () => {
 
       // Basic validation
       if (!data.name || !data.email || !data.message) {
-        alert("Por favor, complete todos los campos obligatorios.");
+        alert('Por favor, complete todos los campos obligatorios.');
         return;
       }
 
       // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.email)) {
-        alert("Por favor, ingrese un email válido.");
+        alert('Por favor, ingrese un email válido.');
         return;
       }
 
       // Submit form (implement your submission logic here)
-      console.log("Form submitted:", data);
-      alert("Mensaje enviado correctamente. Nos pondremos en contacto pronto.");
+      console.log('Form submitted:', data);
+      alert('Mensaje enviado correctamente. Nos pondremos en contacto pronto.');
     });
   });
 };
@@ -342,21 +345,21 @@ const formValidation = () => {
  * Lazy Loading Images
  */
 const lazyLoadImages = () => {
-  if ("IntersectionObserver" in window) {
+  if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const img = entry.target;
           if (img.dataset.src) {
             img.src = img.dataset.src;
-            img.classList.remove("lazy");
+            img.classList.remove('lazy');
             imageObserver.unobserve(img);
           }
         }
       });
     });
 
-    document.querySelectorAll("img[data-src]").forEach((img) => {
+    document.querySelectorAll('img[data-src]').forEach((img) => {
       imageObserver.observe(img);
     });
   }
@@ -367,21 +370,21 @@ const lazyLoadImages = () => {
  */
 const performanceMonitoring = () => {
   // Monitor Core Web Vitals if supported
-  if ("PerformanceObserver" in window) {
+  if ('PerformanceObserver' in window) {
     // Largest Contentful Paint (LCP)
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
       const lastEntry = entries[entries.length - 1];
-      console.log("LCP:", lastEntry.startTime);
-    }).observe({ entryTypes: ["largest-contentful-paint"] });
+      console.log('LCP:', lastEntry.startTime);
+    }).observe({ entryTypes: ['largest-contentful-paint'] });
 
     // First Input Delay (FID)
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
       entries.forEach((entry) => {
-        console.log("FID:", entry.processingStart - entry.startTime);
+        console.log('FID:', entry.processingStart - entry.startTime);
       });
-    }).observe({ entryTypes: ["first-input"] });
+    }).observe({ entryTypes: ['first-input'] });
 
     // Cumulative Layout Shift (CLS)
     new PerformanceObserver((entryList) => {
@@ -391,8 +394,8 @@ const performanceMonitoring = () => {
           clsValue += entry.value;
         }
       });
-      console.log("CLS:", clsValue);
-    }).observe({ entryTypes: ["layout-shift"] });
+      console.log('CLS:', clsValue);
+    }).observe({ entryTypes: ['layout-shift'] });
   }
 };
 
@@ -400,13 +403,13 @@ const performanceMonitoring = () => {
  * Error Handling
  */
 const errorHandling = () => {
-  window.addEventListener("error", (event) => {
-    console.error("JavaScript Error:", event.error);
+  window.addEventListener('error', (event) => {
+    console.error('JavaScript Error:', event.error);
     // In production, send to error tracking service
   });
 
-  window.addEventListener("unhandledrejection", (event) => {
-    console.error("Unhandled Promise Rejection:", event.reason);
+  window.addEventListener('unhandledrejection', (event) => {
+    console.error('Unhandled Promise Rejection:', event.reason);
     // In production, send to error tracking service
   });
 };
@@ -415,15 +418,15 @@ const errorHandling = () => {
  * Service Worker Registration
  */
 const registerServiceWorker = () => {
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
       navigator.serviceWorker
-        .register("/sw.js")
+        .register('/sw.js')
         .then((registration) => {
-          console.log("SW registered: ", registration);
+          console.log('SW registered: ', registration);
         })
         .catch((registrationError) => {
-          console.log("SW registration failed: ", registrationError);
+          console.log('SW registration failed: ', registrationError);
         });
     });
   }
@@ -454,17 +457,17 @@ const init = () => {
   // Service worker (non-critical)
   setTimeout(registerServiceWorker, 2000);
 
-  console.log("C4 Logística - Application initialized successfully");
+  console.log('C4 Logística - Application initialized successfully');
 };
 
 /**
  * DOM Content Loaded
  */
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener('DOMContentLoaded', init);
 
 /**
  * Export for module systems (if needed)
  */
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = { init, utils, CONFIG };
 }

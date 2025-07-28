@@ -88,10 +88,12 @@ npx imagemin src/images/*.jpg --out-dir=src/images/optimized
 Para que el sitio web funcione correctamente, necesitas agregar las siguientes imágenes:
 
 ### **Imágenes Obligatorias:**
+
 - **`src/images/logo.png`**: Logo corporativo de C4 Logística
 - **`src/images/foto-hero-bg.png`**: Imagen de fondo para la sección hero
 
 ### **Imágenes Adicionales Recomendadas:**
+
 - **`src/images/whatsapp-icon.svg`**: Icono de WhatsApp para botones CTA
 - **`src/images/infrastructure-icon.svg`**: Icono de infraestructura
 - **`src/images/logistics-icon.svg`**: Icono de servicios logísticos
@@ -101,6 +103,7 @@ Para que el sitio web funcione correctamente, necesitas agregar las siguientes i
 - **`src/images/play-icon.svg`**: Icono de play para video
 
 ### **Optimización Automática:**
+
 ```bash
 # Convertir imágenes a WebP
 npm run webp:convert
