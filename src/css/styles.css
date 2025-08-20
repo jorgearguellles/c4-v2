@@ -793,7 +793,7 @@ ul {
     }
 
     .nav__logo-text {
-      font-size: var(--font-size-xl);
+      display: hidden;
     }
 
     .hero__title {
@@ -823,10 +823,6 @@ ul {
 
     .services__grid {
       grid-template-columns: repeat(3, 1fr);
-    }
-
-    .nav__logo-text {
-      display: block;
     }
   }
 
@@ -1279,29 +1275,26 @@ ul {
     box-sizing: border-box;
   }
   
-  /* Ocultar texto del logo en mobile - solo mostrar logo C4 */
-  .nav__logo-text {
-    display: none;
-  }
+
   
-  /* CTA WhatsApp redondo solo con ícono */
+  /* CTA mobile: Solo texto "Agenda una visita" */
   .nav__cta .btn--whatsapp {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 0;
-    min-width: 50px;
+    width: auto;
+    height: auto;
+    border-radius: 25px; /* Botón redondeado pero no circular */
+    padding: 0.75rem 1rem;
+    min-width: auto;
     justify-content: center;
     align-items: center;
-    font-size: 0;
-    text-indent: -9999px;
-    overflow: hidden;
+    font-size: 0.875rem; /* 14px - texto legible en mobile */
+    text-indent: 0; /* Mostrar texto */
+    overflow: visible;
+    white-space: nowrap;
   }
   
-  /* Ajustar tamaño del ícono WhatsApp */
+  /* Ocultar ícono WhatsApp en mobile */
   .nav__cta .btn--whatsapp .btn__icon {
-    width: 24px;
-    height: 24px;
+    display: none;
   }
   
   /* Main se adapta al body/viewport */
@@ -1310,6 +1303,52 @@ ul {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  /* Hero mobile: Layout columna con dos filas */
+  .hero__content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Fila 1: Hero Title centrado */
+  .hero__title {
+    order: 1;
+    font-size: 2.5rem !important; /* 40px - tamaño optimizado para mobile */
+    font-weight: 900;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0 auto 1rem;
+    max-width: 90%;
+    color: var(--color-white);
+  }
+
+  /* Fila 2: Hero CTA centrado */
+  .hero__cta {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1rem auto 0;
+  }
+
+  .hero__cta .btn--whatsapp {
+    font-size: 1rem; /* 16px - botón legible */
+    padding: 1rem 1.5rem;
+    border-radius: 30px;
+    white-space: nowrap;
+  }
+
+  .hero__cta .btn--whatsapp .btn__icon {
+    display: none; /* Ocultar ícono en hero mobile también */
   }
   
   /* Hero section */
