@@ -165,6 +165,10 @@
   --logo-size-mobile: 100px;
   --carousel-gap: 2rem;
 
+  /* Solutions Carousel Variables */
+  --solutions-carousel-speed-mobile: 35s;
+  --solutions-item-width-mobile: 280px;
+
   /* Flex Basis */
   --flex-basis-video: 1 1 300px;
   --flex-basis-location: 1 1 400px;
@@ -1069,9 +1073,12 @@ ul {
   }
 }
 
-/* Soluciones */
+/* ====================================================================
+   SOLUTIONS CAROUSEL UNIVERSAL
+   ==================================================================== */
+
+/* Layout base - Web/Desktop: 4 items estáticos */
 .solutions {
-  /* background-color: #0095ff; */
   text-align: center;
 }
 
@@ -1086,13 +1093,27 @@ ul {
   font-weight: 800;
 }
 
-.solutions-grid {
-  background-color: var(--color-blue-accent);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--gap-solutions);
+/* Contenedor del carrusel de solutions */
+.solutions-carousel-container {
+  position: relative;
   width: 100%;
+  background-color: var(--color-blue-accent);
+}
+
+/* Track del carrusel - Por defecto: grid estático */
+.solutions-carousel-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: var(--gap-solutions);
+  padding: var(--spacing-section) 0;
+  width: 100%;
+}
+
+/* Ocultar duplicados por defecto (solo mobile los necesita) */
+.solutions-duplicate {
+  display: none;
 }
 
 .solution-item {
@@ -1137,10 +1158,6 @@ ul {
 
   .solutions h2 {
     font-size: 2rem;
-  }
-
-  .solution-item {
-    max-width: 100%;
   }
 }
 
@@ -1342,14 +1359,6 @@ ul {
     padding: 0;
   }
   
-  .solutions-grid {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: var(--spacing-section) 4%;
-    box-sizing: border-box;
-  }
-  
   /* Location */
   .location {
     width: 100%;
@@ -1456,6 +1465,78 @@ ul {
 
 /* Animación para mobile - scroll continuo infinito */
 @keyframes carousel-mobile {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ====================================================================
+   SOLUTIONS CAROUSEL MOBILE ESPECÍFICO (≤425px)
+   ==================================================================== */
+@media (max-width: 425px) {
+  /* Activar carrusel de solutions solo en mobile */
+  .solutions-carousel-container {
+    overflow: hidden !important;
+    position: relative;
+  }
+
+  /* Cambiar de grid a flex para el carrusel de solutions */
+  .solutions-carousel-track {
+    display: flex !important;
+    grid-template-columns: none !important;
+    justify-items: normal;
+    justify-content: flex-start;
+    align-items: center;
+    animation: solutions-carousel-mobile var(--solutions-carousel-speed-mobile) linear infinite;
+    width: calc(200% + 32rem); /* Ancho para 8 items + márgenes */
+    gap: 0;
+    padding: var(--spacing-section) 0;
+  }
+
+  .solutions-carousel-track .solution-item {
+    min-width: var(--solutions-item-width-mobile);
+    max-width: var(--solutions-item-width-mobile);
+    margin: 0 2rem;
+    opacity: 1;
+    flex-shrink: 0;
+  }
+
+  /* Mostrar duplicados en mobile para efecto infinito */
+  .solutions-duplicate {
+    display: block !important;
+  }
+
+  /* Efectos de fade en los bordes para solutions */
+  .solutions-carousel-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      var(--color-blue-accent) 0%, 
+      rgba(0, 149, 255, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .solutions-carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(270deg, 
+      var(--color-blue-accent) 0%, 
+      rgba(0, 149, 255, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+/* Animación para solutions carousel mobile */
+@keyframes solutions-carousel-mobile {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
