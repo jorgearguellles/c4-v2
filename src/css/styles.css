@@ -1041,7 +1041,7 @@ ul {
 .testimonial {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   background-color: var(--color-blue-testimonial);
   padding: var(--spacing-section);
