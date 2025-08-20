@@ -65,8 +65,13 @@
   /* Base Font Sizes */
   --font-size-base: 1rem; /* 16px */
   --font-size-lg: 1.125rem; /* 18px */
+  --font-size-lg-2: 1.5rem; /* 24px */
   --font-size-xl: 1.25rem; /* 20px */
   --font-size-5xl: 3rem; /* 48px */
+  --font-size-6xl: 3.75rem; /* 60px */
+  --font-size-7xl: 4.5rem; /* 72px */
+  --font-size-8xl: 5.25rem; /* 84px */
+
 
   /* Component Font Sizes */
   --font-size-hero: 80px;
@@ -100,24 +105,25 @@
   --spacing-2xl: 3rem; /* 48px */
 
   /* Component Spacing */
-  --spacing-section: 4rem;
-  --spacing-section-mobile: 1rem;
-  --spacing-hero-bottom: 42px;
-  --spacing-text-negative: -30px;
-  --spacing-metric-top: 14%;
+
+  --spacing-section: 4rem; /* 64px */
+  --spacing-section-mobile: 1rem; /* 16px */
+  --spacing-hero-bottom: 42px; /* 67.2px */
+  --spacing-text-negative: -30px; /* -48px */
+  --spacing-metric-top: 14%; /* 22.4px */
 
   /* Gaps */
-  --gap-part1: 2rem;
-  --gap-part3: 1rem;
-  --gap-solutions: 30px;
-  --gap-location: 40px;
-  --gap-metrics: 1rem;
+  --gap-part1: 2rem; /* 32px */
+  --gap-part3: 1rem; /* 16px */
+  --gap-solutions: 30px; /* 48px */
+  --gap-location: 40px; /* 64px */
+  --gap-metrics: 1rem; /* 16px */
 
   /* Margins */
-  --margin-section: 4rem 0;
-  --margin-section-sm: 2rem;
-  --margin-testimonial: 15px 0;
-  --margin-solution: 30px 0;
+  --margin-section: 4rem 0; /* 64px */
+  --margin-section-sm: 2rem; /* 32px */
+  --margin-testimonial: 15px 0; /* 24px */
+  --margin-solution: 30px 0; /* 48px */
 
   /* ====================================================================
      LAYOUT SYSTEM
@@ -125,19 +131,19 @@
 
   /* Container */
   --container-width: 1200px;
-  --container-padding: 1rem;
+  --container-padding: 1rem; /* 16px */
 
   /* Element Widths */
-  --width-video: 50%;
-  --width-text: 30%;
-  --width-solution-item: 260px;
-  --width-testimonial: 50%;
+  --width-video: 50%; /* 50% */
+  --width-text: 30%; /* 30% */
+  --width-solution-item: 260px; /* 260px */
+  --width-testimonial: 30%; /* 50% */
 
   /* Element Heights */
-  --height-btn: 50px;
-  --height-nav: 70px;
-  --height-whatsapp-section: 80px;
-  --height-location-map: 350px;
+  --height-btn: 50px; /* 50px */
+  --height-nav: 70px; /* 70px */
+  --height-whatsapp-section: 80px; /* 80px */
+  --height-location-map: 350px; /* 350px */
 
   /* Element Sizes */
   --size-nav-logo: 40px;
@@ -146,8 +152,8 @@
   --size-check-icon-width: 60px;
   --size-check-icon-height: 48px;
   --size-service-icon-sm: 64px;
-  --size-service-icon-lg: 165px;
-  --size-testimonial-img: 300px;
+  --size-service-icon-lg: 120px;
+  --size-testimonial-img: 400px;
   --size-logo-max: 150px;
 
   /* Flex Basis */
@@ -872,8 +878,8 @@ ul {
 }
 
 .service-card__icon img {
-  width: var(--size-service-icon-sm);
-  height: var(--size-service-icon-sm);
+  width: var(--size-service-icon-lg);
+  height: var(--size-service-icon-lg);
   margin-bottom: 1rem;
 }
 
@@ -963,13 +969,12 @@ ul {
   justify-content: center;
   flex-wrap: wrap;
   background-color: var(--color-blue-testimonial);
-  padding: 60px;
+  padding: var(--spacing-section);
 }
 
 /* Client Image */
 .testimonial-image img {
   width: var(--size-testimonial-img);
-  max-width: var(--width-testimonial);
   height: var(--size-testimonial-img);
   object-fit: cover;
   border-radius: var(--border-radius-testimonial);
@@ -979,17 +984,19 @@ ul {
 /* Textual Content */
 .testimonial-content {
   max-width: var(--width-testimonial);
+  width: 100%;
 }
 
-.testimonial-content h2 {
-  font-size: 2.8rem;
+.testimonial-content__title {
+  font-size: var(--font-size-7xl);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
+  color: var(--color-white);
 }
 
 .testimonial-content .quote {
-  font-size: 1.2rem;
+  font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-white);
   margin-bottom: 25px;
