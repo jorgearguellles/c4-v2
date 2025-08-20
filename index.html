@@ -298,10 +298,27 @@
     </section>
 
     <section class="section part3">
-      <img src="src/images/logo-mayor-huevo.png" alt="Mayor Huevo" class="logo" />
-      <img src="src/images/logo-todoenD.png" alt="Todo en D." class="logo" />
-      <img src="src/images/logo-salsasconfites.png" alt="Salsas Confites" class="logo" />
-      <img src="src/images/logo-serka.png" alt="Serka" class="logo" />
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <!-- Logos originales -->
+          <img src="src/images/logo-mayor-huevo.png" alt="Mayor Huevo" class="logo" />
+          <img src="src/images/logo-todoenD.png" alt="Todo en D." class="logo" />
+          <img src="src/images/logo-salsasconfites.png" alt="Salsas Confites" class="logo" />
+          <img src="src/images/logo-serka.png" alt="Serka" class="logo" />
+          <!-- Logos duplicados para efecto infinito -->
+          <img src="src/images/logo-mayor-huevo.png" alt="Mayor Huevo" class="logo carousel-duplicate" />
+          <img src="src/images/logo-todoenD.png" alt="Todo en D." class="logo carousel-duplicate" />
+          <img src="src/images/logo-salsasconfites.png" alt="Salsas Confites" class="logo carousel-duplicate" />
+          <img src="src/images/logo-serka.png" alt="Serka" class="logo carousel-duplicate" />
+        </div>
+      </div>
+      <!-- Indicadores para tablet/desktop -->
+      <div class="carousel-indicators">
+        <span class="indicator active" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
+        <span class="indicator" data-slide="3"></span>
+      </div>
     </section>
 
     <!-- Success Cases Section -->

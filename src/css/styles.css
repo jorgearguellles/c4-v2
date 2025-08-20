@@ -156,6 +156,15 @@
   --size-testimonial-img: 400px;
   --size-logo-max: 150px;
 
+  /* Carousel Variables */
+  --carousel-speed-desktop: 8s;
+  --carousel-speed-tablet: 6s;
+  --carousel-speed-mobile: 40s;
+  --logo-size-desktop: 150px;
+  --logo-size-tablet: 120px;
+  --logo-size-mobile: 100px;
+  --carousel-gap: 2rem;
+
   /* Flex Basis */
   --flex-basis-video: 1 1 300px;
   --flex-basis-location: 1 1 400px;
@@ -202,6 +211,7 @@
      ==================================================================== */
 
   --breakpoint-mobile: 768px;
+  --breakpoint-mobile-small: 425px;
   --breakpoint-tablet: 1024px;
   --breakpoint-desktop: 1200px;
 }
@@ -229,6 +239,9 @@ body {
   color: var(--color-gray-dark);
   background-color: var(--color-white);
   overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -565,13 +578,55 @@ ul {
   margin: var(--margin-section);
 }
 
+/* ====================================================================
+   CARRUSEL UNIVERSAL - PART3
+   ==================================================================== */
+
+/* LAYOUT BASE - Web/Desktop: 4 logos estáticos */
 .part3 {
+  position: relative;
+  margin-bottom: var(--margin-section-sm);
+}
+
+/* Contenedor del carrusel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Track del carrusel - Por defecto: grid estático */
+.carousel-track {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
-  margin-bottom: var(--margin-section-sm);
+  gap: var(--carousel-gap);
+  padding: 2rem 0;
 }
+
+/* Logos base */
+.carousel-track .logo {
+  max-width: var(--logo-size-desktop);
+  max-height: var(--logo-size-desktop);
+  opacity: 0.8;
+  transition: opacity var(--transition-normal);
+}
+
+.carousel-track .logo:hover {
+  opacity: 1;
+}
+
+/* Ocultar duplicados por defecto (solo mobile los necesita) */
+.carousel-duplicate {
+  display: none;
+}
+
+/* Indicadores - Ocultos en todos los dispositivos */
+.carousel-indicators {
+  display: none;
+}
+
+
 
 .logo {
   max-width: var(--size-logo-max);
@@ -592,18 +647,7 @@ ul {
     margin-bottom: 2rem;
   }
 
-  .part3 {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: var(--gap-part3);
-    padding-bottom: var(--gap-part3);
-  }
 
-  .part3 img {
-    scroll-snap-align: center;
-    flex-shrink: 0;
-  }
 
   /* SERVICES SECTION
    ========================================================================== */
@@ -1157,3 +1201,263 @@ ul {
   font-weight: bold;
   color: var(--color-gray-dark-text);
 }
+
+/* ====================================================================
+   MOBILE-FIRST RESPONSIVE FIXES - ELIMINAR ESPACIOS EN BLANCO
+   ==================================================================== */
+
+/* Mobile: Asegurar que no haya espacios en blanco - 425px hacia abajo */
+@media (max-width: var(--breakpoint-mobile-small)) {
+  /* Contenedores principales que deben ocupar todo el ancho */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  .header {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .nav {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 4%;
+    padding-right: 4%;
+    box-sizing: border-box;
+  }
+  
+  /* Ocultar texto del logo en mobile - solo mostrar logo C4 */
+  .nav__logo-text {
+    display: none;
+  }
+  
+  /* CTA WhatsApp redondo solo con ícono */
+  .nav__cta .btn--whatsapp {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    min-width: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+  
+  /* Ajustar tamaño del ícono WhatsApp */
+  .nav__cta .btn--whatsapp .btn__icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Main container */
+  .main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Hero section */
+  .hero {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Pillars section */
+  .pillars {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Services section */
+  .services {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-section) 4%;
+    box-sizing: border-box;
+  }
+  
+  /* WhatsApp section */
+  .whatsapp {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Section containers */
+  .section {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-section) 4%;
+    box-sizing: border-box;
+  }
+
+
+  
+
+  
+  /* Support banner */
+  .support-banner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Testimonial */
+  .testimonial {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-section) 4%;
+    box-sizing: border-box;
+  }
+  
+  /* Solutions */
+  .solutions {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .solutions-grid {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-section) 4%;
+    box-sizing: border-box;
+  }
+  
+  /* Location */
+  .location {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-section) 4%;
+    box-sizing: border-box;
+  }
+  
+  /* Footer */
+  .footer-call {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-section) 4%;
+    box-sizing: border-box;
+  }
+  
+  /* Container utility class override for mobile */
+  .container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0 4%;
+    box-sizing: border-box;
+  }
+}
+
+/* ====================================================================
+   CARRUSEL MOBILE ESPECÍFICO (≤425px)
+   ==================================================================== */
+@media (max-width: 425px) {
+  /* Activar carrusel solo en mobile */
+  .part3 {
+    overflow: hidden !important;
+    position: relative;
+  }
+
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Cambiar de grid a flex para el carrusel */
+  .carousel-track {
+    display: flex !important;
+    grid-template-columns: none !important;
+    justify-items: normal;
+    justify-content: flex-start;
+    align-items: center;
+    animation: carousel-mobile 40s linear infinite;
+    width: calc(200% + 16rem); /* Ancho para 8 logos + márgenes */
+    gap: 0;
+    padding: 2rem 0;
+  }
+
+  .carousel-track .logo {
+    min-width: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 2rem;
+    opacity: 0.8;
+    flex-shrink: 0;
+  }
+
+  /* Mostrar duplicados en mobile para efecto infinito */
+  .carousel-duplicate {
+    display: block !important;
+  }
+
+  /* Efectos de fade en los bordes */
+  .part3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      rgba(255,255,255,1) 0%, 
+      rgba(255,255,255,0) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .part3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(270deg, 
+      rgba(255,255,255,1) 0%, 
+      rgba(255,255,255,0) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+/* ====================================================================
+   ANIMACIÓN PARA CARRUSEL MOBILE ÚNICAMENTE
+   ==================================================================== */
+
+/* Animación para mobile - scroll continuo infinito */
+@keyframes carousel-mobile {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
