@@ -146,7 +146,7 @@
   --height-location-map: 350px; /* 350px */
 
   /* Element Sizes */
-  --size-nav-logo: 40px;
+  --size-nav-logo: 80px;
   --size-btn-icon: 20px;
   --size-whatsapp-icon: 30px;
   --size-check-icon-width: 60px;
@@ -723,6 +723,25 @@ ul {
   width: var(--size-service-icon-lg);
   height: var(--size-service-icon-lg);
   margin-bottom: 1rem;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Estilos específicos para SVGs para mantener calidad vectorial */
+.service-card__icon img[src$=".svg"] {
+  image-rendering: auto;
+  -webkit-filter: none;
+  filter: none;
+}
+
+/* Mejora para imágenes PNG pequeñas */
+.service-card__icon img[src$=".png"] {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-filter: contrast(1.1);
+  filter: contrast(1.1);
 }
 
 .service-card__title {
