@@ -2,29 +2,29 @@
   "name": "C4 Logística y Transporte",
   "short_name": "C4 Logística",
   "description": "Servicios logísticos integrales con tecnología WMS, almacenamiento FIFO/LIFO, picking y distribución. Las 4C que mueven tu negocio.",
-  "start_url": "/",
+  "start_url": "../../",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#00B04A",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "scope": "../../",
   "lang": "es",
   "categories": ["logistics", "transport", "business"],
   "icons": [
     {
-      "src": "/src/images/logo.png",
-      "sizes": "83x61",
-      "type": "image/png",
+      "src": "../images/LOGO-C4.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/src/images/icon-192x192.png",
+      "src": "../images/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/src/images/icon-512x512.png",
+      "src": "../images/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -35,10 +35,10 @@
       "name": "Ver Servicios",
       "short_name": "Servicios", 
       "description": "Conoce nuestros servicios logísticos",
-      "url": "/index.html#servicios",
+      "url": "../../index.html#servicios",
       "icons": [
         {
-          "src": "/src/images/icon-192x192.png",
+          "src": "../images/icon-192x192.png",
           "sizes": "192x192"
         }
       ]
@@ -47,10 +47,10 @@
       "name": "Ubicación",
       "short_name": "Ubicación",
       "description": "Ver nuestra ubicación en el mapa",
-      "url": "/index.html#ubicacion",
+      "url": "../../index.html#ubicacion",
       "icons": [
         {
-          "src": "/src/images/icon-192x192.png",
+          "src": "../images/icon-192x192.png",
           "sizes": "192x192"
         }
       ]
