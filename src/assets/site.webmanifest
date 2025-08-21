@@ -13,35 +13,47 @@
   "icons": [
     {
       "src": "/src/images/logo.png",
+      "sizes": "83x61",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/src/images/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/src/images/logo.png",
-      "sizes": "512x512", 
+      "src": "/src/images/icon-512x512.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "shortcuts": [
     {
-      "name": "Contactar por WhatsApp",
-      "short_name": "WhatsApp",
-      "description": "Contacta directamente por WhatsApp",
-      "url": "https://wa.me/573007377368"
-    },
-    {
       "name": "Ver Servicios",
       "short_name": "Servicios", 
       "description": "Conoce nuestros servicios logísticos",
-      "url": "/#servicios"
+      "url": "/index.html#servicios",
+      "icons": [
+        {
+          "src": "/src/images/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Ubicación",
       "short_name": "Ubicación",
       "description": "Ver nuestra ubicación en el mapa",
-      "url": "/#ubicacion"
+      "url": "/index.html#ubicacion",
+      "icons": [
+        {
+          "src": "/src/images/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ],
   "prefer_related_applications": false,
