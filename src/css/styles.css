@@ -997,4 +997,33 @@ ul {
   .nav .btn__icon {
     display: none;
   }
+  
+  /* ====================================================================
+     HERO SECTION MOBILE RESPONSIVE
+     ==================================================================== */
+  
+  /* Cambiar layout del hero content a columna */
+  .hero__content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  
+  /* Ajustar título del hero para mobile */
+  .hero__title {
+    font-size: 3rem; /* 48px - más pequeño para mobile */
+    text-align: center;
+    margin-left: 0; /* Resetear margin left */
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+  
+  /* Centrar CTA del hero */
+  .hero__cta {
+    margin-right: 0; /* Resetear margin right */
+    text-align: center;
+  }
 }
