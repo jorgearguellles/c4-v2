@@ -3,6 +3,8 @@
  * =============================================
  */
 
+/* global gtag, google, module */
+
 // Configuration
 const CONFIG = {
   whatsapp: {
@@ -284,10 +286,12 @@ const googleMapsIntegration = () => {
     });
 
     // Open info window on marker click
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       position: CONFIG.maps.center,
       map: map,
-    }).addListener('click', () => {
+    });
+
+    marker.addListener('click', () => {
       infoWindow.open(map, marker);
     });
   };

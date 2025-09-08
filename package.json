@@ -48,10 +48,10 @@
     "eslint": "^8.57.0",
     "html-validate": "^8.7.4",
     "http-server": "^14.1.1",
-    "imagemin": "^8.0.1",
+    "imagemin": "^7.0.1",
     "imagemin-cli": "^7.0.0",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.0",
     "imagemin-webp": "^7.0.0",
     "lighthouse": "^11.4.0",
     "live-server": "^1.2.2",
@@ -60,7 +60,6 @@
     "stylelint-config-standard": "^36.0.0",
     "terser": "^5.26.0"
   },
-  "dependencies": {},
   "browserslist": [
     "> 1%",
     "last 2 versions",

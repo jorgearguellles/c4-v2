@@ -10,9 +10,9 @@
      ==================================================================== */
 
   /* Base Colors */
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-white: #fff;
+  --color-black: #000;
+  --color-overlay: rgb(0 0 0 / 60%);
 
   /* Brand Colors */
   --color-green-primary: #00b04a;
@@ -54,7 +54,7 @@
 
   /* Font Family */
   --font-primary:
-    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
 
   /* Font Weights */
   --font-weight-regular: 400;
@@ -188,8 +188,8 @@
   --border-radius-testimonial: 50%;
 
   /* Box Shadows */
-  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
+  --box-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%);
   --box-shadow-card: 0px 6px 18.4px 2px #0000004d;
 
   /* Borders */
@@ -235,7 +235,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   width: 100vw;
   height: 100%;
   margin: 0;
@@ -425,7 +425,7 @@ ul {
   background: linear-gradient(
     135deg,
     var(--color-overlay) 0%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgb(0 0 0 / 40%) 100%
   );
   z-index: -1;
 }
@@ -566,7 +566,7 @@ ul {
 .text-content h2 {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-style: Bold;
+  font-style: bold;
   font-size: var(--font-size-text-content);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
@@ -585,7 +585,7 @@ ul {
 .text-content li {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-style: Regular;
+  font-style: regular;
   letter-spacing: var(--letter-spacing-wide);
   text-align: left;
   color: var(--color-black);
@@ -623,13 +623,20 @@ ul {
 .carousel-track {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  justify-items: center;
+  place-items: center center;
   gap: var(--carousel-gap);
   padding: 2rem 0;
 }
 
 /* Logos base */
+.logo {
+  max-width: var(--size-logo-max);
+  max-height: var(--size-logo-max);
+
+  /* height: auto; */
+  opacity: var(--opacity-logo);
+}
+
 .carousel-track .logo {
   max-width: var(--logo-size-desktop);
   max-height: var(--logo-size-desktop);
@@ -649,15 +656,6 @@ ul {
 /* Indicadores - Ocultos en todos los dispositivos */
 .carousel-indicators {
   display: none;
-}
-
-
-
-.logo {
-  max-width: var(--size-logo-max);
-  max-height: var(--size-logo-max);
-  /* height: auto; */
-  opacity: var(--opacity-logo);
 }
 
 
@@ -732,7 +730,6 @@ ul {
 /* Estilos específicos para SVGs para mantener calidad vectorial */
 .service-card__icon img[src$=".svg"] {
   image-rendering: auto;
-  -webkit-filter: none;
   filter: none;
 }
 
@@ -740,7 +737,6 @@ ul {
 .service-card__icon img[src$=".png"] {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  -webkit-filter: contrast(1.1);
   filter: contrast(1.1);
 }
 
@@ -901,8 +897,7 @@ ul {
 .solutions-carousel-track {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  justify-items: center;
+  place-items: center center;
   gap: var(--gap-solutions);
   width: 100%;
 }
@@ -1007,7 +1002,7 @@ ul {
    ==================================================================== */
 
 /* Ocultar texto del logo en mobile */
-@media (max-width: 425px) {
+@media (width <= 425px) {
   .nav__logo-text {
     display: none;
   }
@@ -1015,6 +1010,33 @@ ul {
   /* Ocultar ícono de WhatsApp en el botón del header */
   .nav .btn__icon {
     display: none;
+  }
+
+  /* ====================================================================
+     SOLUTIONS SECTION MOBILE RESPONSIVE
+     ==================================================================== */
+  
+  .container-title-solutions {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .solutions h2 {
+    font-size: 1.8rem; /* Tamaño accesible para mobile */
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  /* ====================================================================
+     LOCATION SECTION MOBILE RESPONSIVE
+     ==================================================================== */
+  
+  .location-info h2 {
+    font-size: 1.8rem; /* Tamaño accesible para mobile */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.3;
   }
 
 /* ====================================================================
@@ -1263,20 +1285,6 @@ ul {
     margin-bottom: 2rem;
   }
   
-  .container-title-solutions {
-    text-align: center;
-    margin: 1rem 0;
-  }
-  
-  .solutions h2 {
-    font-size: 1.8rem; /* Tamaño accesible para mobile */
-    color: var(--color-text-title);
-    font-weight: 800;
-    line-height: 1.3;
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
-  }
-  
   .solutions-carousel-container {
     overflow: hidden;
     width: 100%;
@@ -1354,15 +1362,7 @@ ul {
     padding: 0 0.5rem;
   }
   
-  /* Título de ubicación para mobile */
-  .location-info h2 {
-    font-size: 1.8rem; /* Tamaño accesible para mobile */
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: var(--color-black);
-    text-align: center;
-    line-height: 1.3;
-  }
+
   
   /* Párrafo de descripción para mobile */
   .location-info p {
@@ -1407,7 +1407,7 @@ ul {
    ==================================================================== */
 
 /* Pillars en tablet: layout 2x2 */
-@media (max-width: 768px) and (min-width: 426px) {
+@media (width <= 768px) and (width >= 426px) {
   .pillars {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1567,15 +1567,7 @@ ul {
     margin: 0 auto;
   }
   
-  /* Título de ubicación para tablet */
-  .location-info h2 {
-    font-size: 2.2rem; /* Tamaño accesible para tablet */
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: var(--color-black);
-    text-align: center;
-    line-height: 1.3;
-  }
+
   
   /* Párrafo de descripción para tablet */
   .location-info p {
