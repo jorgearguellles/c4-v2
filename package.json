@@ -1,6 +1,6 @@
 {
   "name": "c4-logistica-website",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Sitio web estático moderno para C4 Logística y Transporte - Servicios logísticos integrales",
   "main": "index.html",
   "scripts": {
