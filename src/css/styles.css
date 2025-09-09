@@ -452,15 +452,64 @@ ul {
   margin-top: 20px;
 }
 
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* ====================================================================
+   PILLARS SECTION - LAYOUT RESPONSIVO
+   ==================================================================== */
+
+/* Desktop (>= 1200px): Grid estático */
+@media (width >= 1200px) {
+  .pillars {
+    display: block;
+  }
+  
+  .pillars-carousel-container {
+    display: block;
+  }
+  
+  .pillars-carousel-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  
+  /* Ocultar duplicados en desktop */
+  .pillars-duplicate {
+    display: none;
+  }
+}
+
+/* Menor a Desktop (< 1200px): Carrusel infinito */
+@media (width < 1200px) {
+  .pillars {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .pillars-carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .pillars-carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    animation: pillars-carousel 12s linear infinite;
+    width: max-content;
+  }
+  
+  /* Mostrar duplicados para efecto infinito */
+  .pillars-duplicate {
+    display: block;
+  }
 }
 
 .pillar {
   padding: var(--spacing-lg);
   text-align: center;
   transition: all var(--transition-normal);
+  flex-shrink: 0;
 }
 
 /* Pillars con fondos alternados */
@@ -1090,14 +1139,6 @@ ul {
     color: var(--color-blue-hero-subtitle);
   }
 
-/* ====================================================================
-     PILLARS SECTION MOBILE RESPONSIVE
-     ==================================================================== */
-  
-  /* Ocultar pillars en mobile */
-  .pillars {
-    display: none;
-  }
   
   /* ====================================================================
      SECTION CLIENTS MOBILE RESPONSIVE
@@ -1475,11 +1516,6 @@ ul {
     color: var(--color-blue-hero-subtitle);
   }
 
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
   
   /* ====================================================================
      SECTION CLIENTS TABLET RESPONSIVE
@@ -1685,6 +1721,12 @@ ul {
 
 /* Animación para solutions carousel mobile */
 @keyframes solutions-carousel-mobile {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Animación para pillars carousel */
+@keyframes pillars-carousel {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
