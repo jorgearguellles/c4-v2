@@ -147,13 +147,13 @@
   --size-logo-max: 150px;
 
   /* Carousel Variables */
-  --carousel-speed-desktop: 8s;
-  --carousel-speed-tablet: 6s;
-  --carousel-speed-mobile: 40s;
+  --carousel-speed-desktop: 16s;
+  --carousel-speed-tablet: 12s;
+  --carousel-speed-mobile: 80s;
   --logo-size-desktop: 150px;
   --logo-size-tablet: 120px;
   --logo-size-mobile: 100px;
-  --carousel-gap: 2rem;
+  --carousel-gap: 5rem;
 
 
   /* Flex Basis */
@@ -364,9 +364,9 @@ ul {
 }
 
 .nav__logo-text {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-service-title);
   font-weight: var(--font-weight-bold);
-  color: var(--color-blue-primary);
+  color: var(--color-black);
 }
 
 /* MAIN CONTAINER
@@ -598,57 +598,54 @@ ul {
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-blue-dark-2);
   text-align: center;
-  margin: var(--margin-section);
+  margin: var(--margin-section-sm);
 }
 
 /* ====================================================================
    CARRUSEL UNIVERSAL - PART3
    ==================================================================== */
 
-/* LAYOUT BASE - Web/Desktop: 4 logos estáticos */
+/* LAYOUT BASE - Carrusel para todos los dispositivos */
 .part3 {
   position: relative;
   margin-bottom: var(--margin-section-sm);
+  overflow: hidden;
+  width: 100%;
 }
 
 /* Contenedor del carrusel */
 .carousel-container {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
-/* Track del carrusel - Por defecto: grid estático */
+/* Track del carrusel - Carrusel infinito por defecto */
 .carousel-track {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  place-items: center center;
+  display: flex;
+  align-items: center;
   gap: var(--carousel-gap);
+  animation: carousel-desktop var(--carousel-speed-tablet) linear infinite;
+  width: max-content;
   padding: 2rem 0;
 }
 
 /* Logos base */
 .logo {
-  max-width: var(--size-logo-max);
-  max-height: var(--size-logo-max);
-
-  /* height: auto; */
-  opacity: var(--opacity-logo);
-}
-
-.carousel-track .logo {
   max-width: var(--logo-size-desktop);
   max-height: var(--logo-size-desktop);
-  opacity: 0.8;
+  opacity: var(--opacity-logo);
   transition: opacity var(--transition-normal);
+  flex-shrink: 0;
 }
 
 .carousel-track .logo:hover {
   opacity: 1;
 }
 
-/* Ocultar duplicados por defecto (solo mobile los necesita) */
+/* Mostrar duplicados para efecto infinito en todos los dispositivos */
 .carousel-duplicate {
-  display: none;
+  display: block;
 }
 
 /* Indicadores - Ocultos en todos los dispositivos */
@@ -730,7 +727,7 @@ ul {
   /* Estilos para desktop */
   @media (width > 768px) {
     .support-banner__item {
-      font-size: 1.25rem; /* 20px - Óptimo para desktop */
+      font-size: 40px; /* 20px - Óptimo para desktop */
       padding: 1.5rem;
     }
   }
@@ -975,9 +972,10 @@ ul {
   .carousel-track {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--carousel-gap);
     animation: carousel-mobile var(--carousel-speed-mobile) linear infinite;
     width: max-content;
+    padding: 2rem 0;
   }
   
   /* Mostrar logos duplicados para efecto infinito */
@@ -1183,6 +1181,43 @@ ul {
 
 /* Pillars en tablet: layout 2x2 */
 @media (width <= 768px) and (width >= 426px) {
+  /* ====================================================================
+     PART3 CAROUSEL TABLET RESPONSIVE
+     ==================================================================== */
+  
+  /* Configurar carrusel infinito para part3 en tablet */
+  .part3 {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-track {
+    display: flex;
+    align-items: center;
+    gap: var(--carousel-gap);
+    animation: carousel-mobile var(--carousel-speed-tablet) linear infinite;
+    width: max-content;
+    padding: 2rem 0;
+  }
+  
+  /* Mostrar logos duplicados para efecto infinito */
+  .carousel-duplicate {
+    display: block;
+  }
+  
+  /* Ajustar tamaño de logos para tablet */
+  .carousel-track .logo {
+    max-width: var(--logo-size-tablet);
+    max-height: var(--logo-size-tablet);
+    opacity: 0.8;
+    flex-shrink: 0;
+  }
 
   /* ====================================================================
      HERO SECTION TABLET RESPONSIVE
@@ -1376,6 +1411,12 @@ ul {
   100% { transform: translateX(-50%); }
 }
 
+/* Animación para desktop - scroll continuo infinito */
+@keyframes carousel-desktop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 
 /* Animación para pillars carousel */
 @keyframes pillars-carousel {
@@ -1424,31 +1465,92 @@ ul {
 }
 
 .razones__title {
-  font-size: 2.5rem;
+  font-size: var(--font-size-text-content);
   font-weight: var(--font-weight-black);
   color: var(--color-blue-dark-2);
-  margin-bottom: var(--spacing-lg);
   line-height: 1.2;
+  margin: var(--spacing-2xl);
 }
 
 .razones__description {
-  font-size: 1.1rem;
+  font-size: var(--font-size-metric);
   line-height: 1.6;
   color: var(--color-gray-dark);
+  margin: var(--spacing-2xl);
+}
+
+.quienes-somos__title{
+  font-size: var(--font-size-text-content);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  font-style: italic;
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-blue-dark-2);
+  margin: var(--spacing-2xl) 0;
+  text-align: center;
+}
+
+  .answer {
+    text-align: end;
+  }
+
+/* ====================================================================
+   PART3 CAROUSEL DESKTOP RESPONSIVE
+   ==================================================================== */
+
+/* Configurar carrusel infinito para part3 en desktop */
+@media (width > 768px) {
+  .part3 {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: var(--margin-section-sm);
+  }
+  
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-track {
+    display: flex;
+    align-items: center;
+    gap: var(--carousel-gap);
+    animation: carousel-desktop var(--carousel-speed-desktop) linear infinite;
+    width: max-content;
+    padding: 2rem 0;
+  }
+  
+  /* Mostrar logos duplicados para efecto infinito */
+  .carousel-duplicate {
+    display: block;
+  }
+  
+  /* Ajustar tamaño de logos para desktop */
+  .carousel-track .logo {
+    max-width: var(--logo-size-desktop);
+    max-height: var(--logo-size-desktop);
+    opacity: 0.8;
+    flex-shrink: 0;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .carousel-track .logo:hover {
+    opacity: 1;
+  }
 }
 
 .razones__list {
   list-style: none;
   padding: 0;
   margin: 0;
+  margin: var(--spacing-2xl);
 }
 
 .razones__list-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: var(--spacing-md);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--font-size-metric);
+  line-height: 2;
   color: var(--color-gray-dark);
 }
 
@@ -1548,10 +1650,26 @@ ul {
 }
 
 .razones__metric-number {
-  font-size: 2rem;
+  font-size: 80px;
+  color: var(--color-blue-dark-2);
   font-weight: var(--font-weight-black);
-  margin-bottom: var(--spacing-sm);
   line-height: 1.1;
+}
+
+.razones__metric-number-2 {
+  font-size: 50px;
+  font-weight: var(--font-weight-black);
+  line-height: 1.1;
+}
+
+.razones__metric-number-3 {
+  font-size: 80px;
+  font-weight: var(--font-weight-black);
+  line-height: 1.1;
+}
+
+.razones__metric-sub-text-1 {
+  font-size: 20px;
 }
 
 .razones__metric-text {
@@ -1564,11 +1682,17 @@ ul {
   margin-bottom: 0;
 }
 
-.razones__metric-title {
+.razones__metric-title-2 {
   font-size: 1.5rem;
+
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-sm);
-  line-height: 1.2;
+}
+
+.razones__metric-title-3{
+  font-size: 90px;
+  color: var(--color-blue-accent);
+  line-height: 0.8;
 }
 
 .razones__metric-description {
