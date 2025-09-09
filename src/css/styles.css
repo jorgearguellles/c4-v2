@@ -664,16 +664,76 @@ ul {
 
 /* Layout base - Web/Tablet: 1 fila con 3 columnas (33% cada div) */
 .support-banner {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: relative;
+  width: 100%;
   font-family: var(--font-primary);
   font-weight: bold;
   font-size: var(--font-size-services-desc);
   color: white;
+}
+
+/* Contenedor del carrusel - Por defecto oculto */
+.support-banner-carousel-container {
+  display: none;
   width: 100%;
+  overflow: hidden;
+}
+
+/* Track del carrusel */
+.support-banner-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  animation: support-banner-carousel 8s linear infinite;
+  width: max-content;
+}
+
+/* Layout tablet y desktop - Grid estático */
+@media (width > 425px) {
+  .support-banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: static;
+  }
+  
+  .support-banner-carousel-container {
+    display: flex !important;
+    position: static;
+    overflow: visible;
+    width: 100%;
+  }
+  
+  .support-banner-carousel-track {
+    display: flex;
+    animation: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Ocultar duplicados en tablet y desktop */
+  .support-banner-duplicate {
+    display: none !important;
+  }
+  
+  /* Estilos para tablet */
+  @media (width <= 768px) and (width > 425px) {
+    .support-banner__item {
+      font-size: 1.1rem; /* 17.6px - Accesible para tablet */
+      padding: 1.2rem;
+    }
+  }
+  
+  /* Estilos para desktop */
+  @media (width > 768px) {
+    .support-banner__item {
+      font-size: 1.25rem; /* 20px - Óptimo para desktop */
+      padding: 1.5rem;
+    }
+  }
 }
 
 .support-banner__item {
@@ -755,7 +815,7 @@ ul {
 .location {
   display: flex;
   flex-wrap: wrap;
-  padding: 60px var(--gap-location) 0;
+  padding: 60px var(--gap-location);
   align-items: center;
   justify-content: space-between;
   gap: var(--gap-location);
@@ -937,9 +997,40 @@ ul {
      SUPPORT BANNER MOBILE RESPONSIVE
      ==================================================================== */
   
-  /* Ocultar support-banner en mobile */
+  /* Activar carrusel en mobile */
   .support-banner {
-    display: none;
+    display: block;
+    overflow: hidden;
+  }
+  
+  .support-banner-carousel-container {
+    display: block !important;
+  }
+  
+  .support-banner-carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    animation: support-banner-carousel 8s linear infinite;
+    width: max-content;
+  }
+  
+  /* Mostrar duplicados para efecto infinito */
+  .support-banner-duplicate {
+    display: flex;
+  }
+  
+  /* Ajustar items para mobile */
+  .support-banner__item {
+    flex-shrink: 0;
+    min-width: 200px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.95rem; /* 15.2px - Mínimo accesible para mobile */
+    line-height: 1.6; /* Mejor legibilidad en mobile */
   }
   
   /* ====================================================================
@@ -1288,6 +1379,12 @@ ul {
 
 /* Animación para pillars carousel */
 @keyframes pillars-carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Animación para support-banner carousel */
+@keyframes support-banner-carousel {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
