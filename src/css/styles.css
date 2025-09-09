@@ -30,6 +30,9 @@
   --color-blue-support: #003452;
   --color-blue-border: #014776;
   --color-blue-hero-subtitle: #2D7CC0;
+  --color-metric-1: #267DC0;
+  --color-metric-2: #00334C;
+  --color-metric-3: #00335D;
 
   /* Gray Palette */
   --color-gray-light: #f8f9fa;
@@ -1089,6 +1092,7 @@ ul {
 
 /* Pillars en tablet: layout 2x2 */
 @media (width <= 768px) and (width >= 426px) {
+
   /* ====================================================================
      HERO SECTION TABLET RESPONSIVE
      ==================================================================== */
@@ -1286,6 +1290,194 @@ ul {
 @keyframes pillars-carousel {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* ====================================================================
+   RAZONES SECTION
+   ==================================================================== */
+
+/* Razones Section - Layout base */
+.razones {
+  /* padding: var(--spacing-section) 0; */
+  background-color: var(--color-white);
+}
+
+.razones__row {
+  display: flex;
+  align-items: stretch;
+}
+
+.razones__col {
+  flex: 1;
+}
+
+/* Fila 1 - Razones para elegirnos */
+.razones__row--1 {
+  width: 100%;
+}
+
+.razones__row--1 .razones__col--text {
+  width: 50%;
+}
+
+.razones__row--1 .razones__col--image {
+  width: 50%;
+  display: flex;
+  align-items: stretch;
+}
+
+.razones__title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-black);
+  color: var(--color-blue-dark-2);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+}
+
+.razones__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-gray-dark);
+}
+
+.razones__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.razones__list-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-gray-dark);
+}
+
+.razones__check-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: var(--spacing-md);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.razones__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fila 2 - ¿Quiénes somos? */
+
+.razones__video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-lg);
+}
+
+.razones__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Fila 3 - Infraestructura y métricas */
+.razones__row--3 {
+  align-items: stretch;
+  min-height: 600px; /* Altura fija para garantizar igualdad */
+}
+
+.razones__row--3 .razones__col--images {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ocupa toda la altura del contenedor razones__row--3 */
+  width: 50%;
+}
+
+.razones__row--3 .razones__col--metrics {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ocupa toda la altura del contenedor razones__row--3 */
+  width: 50%;
+}
+
+.razones__image-top,
+.razones__image-bottom {
+  height: 50%; /* Cada imagen ocupa exactamente el 50% de la columna */
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.razones__infrastructure-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex: 1;
+}
+
+.razones__metric {
+  height: 33.333%; /* Cada métrica ocupa exactamente 33.333% de la columna */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  color: var(--color-white);
+  text-align: center;
+  box-sizing: border-box; /* Incluir padding en el cálculo de altura */
+}
+
+.razones__metric--1 {
+  background-color: var(--color-metric-1);
+}
+
+.razones__metric--2 {
+  background-color: var(--color-metric-2);
+}
+
+.razones__metric--3 {
+  background-color: var(--color-metric-3);
+}
+
+.razones__metric-content {
+  width: 100%;
+}
+
+.razones__metric-number {
+  font-size: 2rem;
+  font-weight: var(--font-weight-black);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.1;
+}
+
+.razones__metric-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.razones__metric-text:last-child {
+  margin-bottom: 0;
+}
+
+.razones__metric-title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.razones__metric-description {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
 }
 
 /* ====================================================================
