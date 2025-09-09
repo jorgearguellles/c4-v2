@@ -12,7 +12,6 @@
   /* Base Colors */
   --color-white: #fff;
   --color-black: #000;
-  --color-overlay: rgb(0 0 0 / 60%);
 
   /* Brand Colors */
   --color-green-primary: #00b04a;
@@ -30,6 +29,7 @@
   --color-blue-light-accent: #33b4ff;
   --color-blue-support: #003452;
   --color-blue-border: #014776;
+  --color-blue-hero-subtitle: #2D7CC0;
 
   /* Gray Palette */
   --color-gray-light: #f8f9fa;
@@ -394,20 +394,35 @@ ul {
 /* HERO SECTION
    ========================================================================== */
 .hero {
-  position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
 }
 
+.hero__content {
+  width: 50%;
+  padding: var(--spacing-2xl);
+  z-index: 1;
+  color: var(--color-black);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #F6F5F5;
+}
+
+/* Solo aplicar height: 100vh en desktop (mayor a 768px) */
+@media (width > 768px) {
+  .hero__content {
+    height: 100vh;
+  }
+}
+
 .hero__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .hero__image {
@@ -417,39 +432,24 @@ ul {
   object-position: center;
 }
 
-.hero__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    var(--color-overlay) 0%,
-    rgb(0 0 0 / 40%) 100%
-  );
-  z-index: -1;
-}
-
-.hero__content {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  color: var(--color-white);
-  text-align: left;
-  padding: var(--spacing-2xl) 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
 .hero__title {
   font-size: var(--font-size-hero);
   font-weight: var(--font-weight-black);
   line-height: var(--line-height-tight);
-  margin-left: var(--spacing-lg);
   font-style: italic;
   letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-blue-dark-2);
+  margin-bottom: 20px;
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  font-style: italic;
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-blue-hero-subtitle);
+  margin-top: 20px;
 }
 
 .pillars {
@@ -481,10 +481,6 @@ ul {
   letter-spacing: var(--letter-spacing-tight);
 }
 
-.hero__cta {
-  text-align: center;
-  margin-right: var(--spacing-2xl);
-}
 
 /* Whatsapp Section */
 .whatsapp {
@@ -1053,29 +1049,45 @@ ul {
      HERO SECTION MOBILE RESPONSIVE
    ==================================================================== */
 
-  /* Cambiar layout del hero content a columna */
-  .hero__content {
+  /* Cambiar layout del hero a columnas apiladas para mobile */
+  .hero {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
+    align-items: stretch;
+    min-height: calc(100vh - var(--height-nav)); /* Restar altura del header */
+    margin-top: var(--height-nav); /* Agregar margen para el header fijo */
+  }
+  
+  .hero__content {
+    width: 100%;
+    order: 1; /* Columna 1 arriba */
     padding: 2rem 1rem;
+    text-align: center;
+    background-color: #F6F5F5; /* Fondo claro para mobile */
+    color: var(--color-black);
+  }
+  
+  .hero__background {
+    width: 100%;
+    order: 2; /* Columna 2 abajo */
+    height: 50vh; /* Altura reducida para mobile */
   }
   
   /* Ajustar título del hero para mobile */
   .hero__title {
     font-size: 3rem; /* 48px - más pequeño para mobile */
     text-align: center;
-    margin-left: 0; /* Resetear margin left */
-    margin-bottom: 0;
+    margin-bottom: 20px;
     line-height: 1.1;
+    color: var(--color-blue-dark-2);
   }
   
-  /* Centrar CTA del hero */
-  .hero__cta {
-    margin-right: 0; /* Resetear margin right */
+  /* Ajustar subtítulo del hero para mobile */
+  .hero__subtitle {
+    font-size: 3rem; /* 48px - mismo tamaño que título */
     text-align: center;
+    margin-top: 20px;
+    line-height: 1.1;
+    color: var(--color-blue-hero-subtitle);
   }
 
 /* ====================================================================
@@ -1418,6 +1430,51 @@ ul {
 
 /* Pillars en tablet: layout 2x2 */
 @media (width <= 768px) and (width >= 426px) {
+  /* ====================================================================
+     HERO SECTION TABLET RESPONSIVE
+     ==================================================================== */
+  
+  /* Cambiar layout del hero a columnas apiladas para tablet */
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: calc(100vh - var(--height-nav)); /* Restar altura del header */
+    margin-top: var(--height-nav); /* Agregar margen para el header fijo */
+  }
+  
+  .hero__content {
+    width: 100%;
+    order: 1; /* Columna 1 arriba */
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #F6F5F5; /* Fondo claro para tablet */
+    color: var(--color-black);
+  }
+  
+  .hero__background {
+    width: 100%;
+    order: 2; /* Columna 2 abajo */
+    height: 60vh; /* Altura para tablet */
+  }
+  
+  /* Ajustar título del hero para tablet */
+  .hero__title {
+    font-size: 4rem; /* Tamaño intermedio para tablet */
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: var(--color-blue-dark-2);
+  }
+  
+  /* Ajustar subtítulo del hero para tablet */
+  .hero__subtitle {
+    font-size: 4rem; /* Tamaño intermedio para tablet */
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.1;
+    color: var(--color-blue-hero-subtitle);
+  }
+
   .pillars {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
