@@ -1526,7 +1526,7 @@ ul {
     object-fit: cover;
   }
   
-  /* Fila 3: Una sola columna con dos filas - Tablet */
+  /* Fila 3: Una sola columna - Tablet (mismo orden que mobile) */
   .razones__row--3 {
     display: flex;
     flex-direction: column;
@@ -1535,37 +1535,36 @@ ul {
     max-width: 100%;
   }
   
-  /* FILA 1: Métricas - Ancho completo del padre */
+  /* Las columnas pierden sentido, ahora solo importan los hijos */
+  .razones__col--images,
   .razones__col--metrics {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+    display: contents;
+    /* Deja que los hijos se organicen solos */
+    height: auto;
   }
   
-  /* FILA 2: Imágenes - Ancho completo del padre */
-  .razones__col--images {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+  /* Reordenamos los elementos - MISMO ORDEN QUE MOBILE */
+  .razones__image-top {
+    order: 1;
   }
   
-  /* Métricas individuales */
-  .razones__metric--1,
-  .razones__metric--2,
+  .razones__metric--1 {
+    order: 2;
+  }
+  
+  .razones__metric--2 {
+    order: 3;
+  }
+  
   .razones__metric--3 {
-    width: 100%;
-    min-height: 180px;
-    padding: 2rem;
-    box-sizing: border-box;
+    order: 4;
   }
   
-  /* Imágenes individuales */
+  .razones__image-bottom {
+    order: 5;
+  }
+  
+  /* Ajuste de tamaños en tablet */
   .razones__image-top,
   .razones__image-bottom {
     width: 100%;
@@ -1574,6 +1573,16 @@ ul {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+  }
+  
+  .razones__metric--1,
+  .razones__metric--2,
+  .razones__metric--3 {
+    width: 100%;
+    min-height: 180px;
+    padding: 2rem;
     box-sizing: border-box;
   }
   
@@ -2075,53 +2084,55 @@ ul {
    Fila 3 - Infraestructura y métricas
    ==================================================================== */
 
- /* Contenedor principal con GRID en desktop */
- .razones__row--3 {
-  display: grid;
-  /* display: flex;
-  flex-direction: column-reverse; */
-  grid-template-columns: 1fr 1fr;
-  /* 2 columnas iguales */
-  min-height: 70vh;
+ /* Contenedor principal con GRID en desktop SOLAMENTE */
+ @media (min-width: 769px) {
+  .razones__row--3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 columnas iguales */
+    min-height: 70vh;
+  }
 }
 
-/* Columnas como flex contenedores */
-.razones__col--images,
-.razones__col--metrics {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+/* Columnas como flex contenedores - SOLO DESKTOP */
+@media (min-width: 769px) {
+  .razones__col--images,
+  .razones__col--metrics {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Hijos de imágenes (desktop: mitad cada uno) */
+  .razones__image-top,
+  .razones__image-bottom {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+  }
+
+  /* Hijos de métricas (desktop: 1/3 cada uno) */
+  .razones__metric {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+  }
 }
 
-/* Hijos de imágenes (desktop: mitad cada uno) */
-.razones__image-top,
-.razones__image-bottom {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-}
-
-
-/* Hijos de métricas (desktop: 1/3 cada uno) */
-.razones__metric {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1.5rem;
-  color: white;
-}
-
+/* Colores de métricas - aplican a todos los breakpoints */
 .razones__metric--1 {
   background-color: #267DC0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: -33px;
 }
 
-/* Verde */
 .razones__metric--2 {
   background-color: #00334C;
   color: white;
@@ -2131,7 +2142,6 @@ ul {
   justify-content: center;
 }
 
-/* Amarillo */
 .razones__metric--3 {
   background-color: #00335D;
   color: #009FE2;
