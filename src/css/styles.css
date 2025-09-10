@@ -413,7 +413,7 @@ ul {
 
 /* Desktop (>= 1200px): Grid estático */
 @media (width >= 1200px) {
-  .pillars {
+.pillars {
     display: block;
   }
   
@@ -422,7 +422,7 @@ ul {
   }
   
   .pillars-carousel-track {
-    display: grid;
+  display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
   }
@@ -624,11 +624,11 @@ ul {
 /* Layout tablet y desktop - Grid estático */
 @media (width > 425px) {
   .support-banner {
-    display: flex;
+  display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+  align-items: center;
+  text-align: center;
     position: static;
   }
   
@@ -816,8 +816,284 @@ ul {
     width: auto;
   }
 
-
   /* ====================================================================
+     RAZONES SECTION MOBILE RESPONSIVE
+     ==================================================================== */
+  
+  /* Layout de una sola columna para todas las filas */
+  .razones__row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Fila 1: Text primero, imagen debajo - Ancho completo del row padre */
+  .razones__row--1 {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .razones__row--1 .razones__col--text {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .razones__row--1 .razones__col--image {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .razones__row--1 .razones__image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Fila 2: Text primero, video debajo - Ancho completo del row padre */
+  .razones__row--2 {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .razones__row--2 .razones__col--text {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .razones__row--2 .razones__col--video {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .razones__video-container {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .razones__video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+  }
+  
+  /* Fila 3: Una sola columna con dos filas - Mobile */
+  .razones__row--3 {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* FILA 1: Métricas - Ancho completo del padre */
+  .razones__col--metrics {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    box-sizing: border-box;
+  }
+  
+  /* FILA 2: Imágenes - Ancho completo del padre */
+  .razones__col--images {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    box-sizing: border-box;
+  }
+  
+  /* Métricas individuales */
+  .razones__metric--1,
+  .razones__metric--2,
+  .razones__metric--3 {
+    width: 100%;
+    min-height: 150px;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+  
+  /* Imágenes individuales */
+  .razones__image-top,
+  .razones__image-bottom {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .razones__infrastructure-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Tipografía optimizada para mobile - Adaptada a ancho completo */
+  .razones__title {
+    font-size: 2.25rem; /* 36px - Escalado para ancho completo mobile */
+    font-weight: 700;
+    text-align: center;
+    margin: 2.5rem auto 1.75rem;
+    line-height: 1.25;
+    max-width: 100%;
+    color: var(--color-blue-dark);
+    padding: 0 1rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .quienes-somos__title {
+    font-size: 2.25rem; /* 36px - Escalado para ancho completo mobile */
+    font-weight: 700;
+    text-align: center;
+    margin: 2.5rem auto 1.75rem;
+    line-height: 1.25;
+    max-width: 100%;
+    color: var(--color-blue-dark);
+    padding: 0 1rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .razones__description {
+    font-size: 1.15rem; /* 18.4px - Escalado para mejor legibilidad mobile */
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 100%;
+    color: var(--color-text-primary);
+    letter-spacing: 0.005em;
+  }
+  
+  .razones__list {
+    text-align: left;
+    max-width: 100%;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .razones__list-item {
+    font-size: 1.05rem; /* 16.8px - Escalado para mobile ancho completo */
+    font-weight: 400;
+    line-height: 1.85;
+    margin-bottom: 0; /* Usando gap en lugar de margin */
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    color: var(--color-text-primary);
+    padding: 0.5rem 0;
+    letter-spacing: 0.005em;
+  }
+  
+  .razones__list-item span {
+    margin-left: 0.25rem;
+    margin-top: 0.075rem;
+  }
+  
+  .razones__check-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  
+  /* Tipografía de métricas optimizada para mobile */
+  .razones__metric-number {
+    font-size: 2.75rem; /* 44px - Escalado para mobile ancho completo */
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.015em;
+  }
+  
+  .razones__metric-number-2 {
+    font-size: 2.25rem; /* 36px - Escalado para mobile */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  
+  .razones__metric-number-3 {
+    font-size: 2.5rem; /* 40px - Escalado para mobile */
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.015em;
+  }
+  
+  .razones__metric-title-3 {
+    font-size: 2rem; /* 32px - Escalado para mobile */
+    font-weight: 700;
+    line-height: 1.25;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  
+  .razones__metric-sub-text-1 {
+    font-size: 1rem; /* 16px - Accesible para mobile */
+    font-weight: 500;
+    line-height: 1.5;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.005em;
+  }
+
+/* ====================================================================
      LOCATION SECTION MOBILE RESPONSIVE
      ==================================================================== */
   
@@ -827,11 +1103,11 @@ ul {
     text-align: center;
     line-height: 1.3;
   }
-
-/* ====================================================================
+  
+  /* ====================================================================
      HERO SECTION MOBILE RESPONSIVE
-   ==================================================================== */
-
+     ==================================================================== */
+  
   /* Cambiar layout del hero a columnas apiladas para mobile */
   .hero {
     flex-direction: column;
@@ -1153,6 +1429,280 @@ ul {
     max-height: var(--logo-size-tablet);
     opacity: 0.8;
     flex-shrink: 0;
+  }
+  
+  /* ====================================================================
+     RAZONES SECTION TABLET RESPONSIVE
+     ==================================================================== */
+  
+  /* Layout de una sola columna para todas las filas */
+  .razones__row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Fila 1: Text primero, imagen debajo - Ancho completo del row padre */
+  .razones__row--1 {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .razones__row--1 .razones__col--text {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .razones__row--1 .razones__col--image {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .razones__row--1 .razones__image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Fila 2: Text primero, video debajo - Ancho completo del row padre */
+  .razones__row--2 {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .razones__row--2 .razones__col--text {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .razones__row--2 .razones__col--video {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .razones__video-container {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .razones__video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+  }
+  
+  /* Fila 3: Una sola columna con dos filas - Tablet */
+  .razones__row--3 {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* FILA 1: Métricas - Ancho completo del padre */
+  .razones__col--metrics {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  /* FILA 2: Imágenes - Ancho completo del padre */
+  .razones__col--images {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  /* Métricas individuales */
+  .razones__metric--1,
+  .razones__metric--2,
+  .razones__metric--3 {
+    width: 100%;
+    min-height: 180px;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  /* Imágenes individuales */
+  .razones__image-top,
+  .razones__image-bottom {
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .razones__infrastructure-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Tipografía optimizada para tablet - Adaptada a ancho completo */
+  .razones__title {
+    font-size: 3rem; /* 48px - Escalado para ancho completo tablet */
+    font-weight: 700;
+    text-align: center;
+    margin: 3rem auto 2rem;
+    line-height: 1.2;
+    max-width: 100%;
+    color: var(--color-blue-dark);
+    letter-spacing: -0.02em;
+  }
+  
+  .quienes-somos__title {
+    font-size: 3rem; /* 48px - Escalado para ancho completo tablet */
+    font-weight: 700;
+    text-align: center;
+    margin: 3rem auto 2rem;
+    line-height: 1.2;
+    max-width: 100%;
+    color: var(--color-blue-dark);
+    letter-spacing: -0.02em;
+  }
+  
+  .razones__description {
+    font-size: 1.4rem; /* 22.4px - Escalado para mejor legibilidad */
+    font-weight: 400;
+    line-height: 1.7;
+    text-align: center;
+    margin: 2.5rem auto;
+    max-width: 100%;
+    color: var(--color-text-primary);
+    padding: 0 2rem;
+    letter-spacing: 0.01em;
+  }
+  
+  .razones__list {
+    text-align: left;
+    max-width: 100%;
+    margin: 3rem auto;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .razones__list-item {
+    font-size: 1.25rem; /* 20px - Escalado para tablet ancho completo */
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 0; /* Usando gap en lugar de margin */
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    color: var(--color-text-primary);
+    padding: 0.75rem 0;
+    letter-spacing: 0.01em;
+  }
+  
+  .razones__list-item span {
+    margin-left: 0.25rem;
+    margin-top: 0.1rem;
+  }
+  
+  .razones__check-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+  
+  /* Tipografía de métricas optimizada para tablet */
+  .razones__metric-number {
+    font-size: 3.5rem; /* 56px - Escalado para tablet */
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  
+  .razones__metric-number-2 {
+    font-size: 2.75rem; /* 44px - Escalado para tablet */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  
+  .razones__metric-number-3 {
+    font-size: 3.25rem; /* 52px - Escalado para tablet */
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  
+  .razones__metric-title-3 {
+    font-size: 2.5rem; /* 40px - Escalado para tablet */
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  
+  .razones__metric-sub-text-1 {
+    font-size: 1.25rem; /* 20px - Accesible para tablet */
+    font-weight: 500;
+    line-height: 1.4;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.005em;
   }
 
   /* ====================================================================
@@ -1527,7 +2077,9 @@ ul {
 
  /* Contenedor principal con GRID en desktop */
  .razones__row--3 {
-  display: grid;
+  /* display: grid; */
+  display: flex;
+  flex-direction: column-reverse;
   grid-template-columns: 1fr 1fr;
   /* 2 columnas iguales */
   min-height: 70vh;
