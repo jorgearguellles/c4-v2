@@ -2077,9 +2077,9 @@ ul {
 
  /* Contenedor principal con GRID en desktop */
  .razones__row--3 {
-  /* display: grid; */
-  display: flex;
-  flex-direction: column-reverse;
+  display: grid;
+  /* display: flex;
+  flex-direction: column-reverse; */
   grid-template-columns: 1fr 1fr;
   /* 2 columnas iguales */
   min-height: 70vh;
@@ -2176,6 +2176,7 @@ ul {
   font-weight: var(--font-weight-black);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
+  color: #009FE2;
 }
 
 /* 📱 Mobile responsive: 425px o menos */
