@@ -2091,6 +2091,7 @@ ul {
     grid-template-columns: 1fr 1fr;
     /* 2 columnas iguales */
     min-height: 70vh;
+    
   }
 }
 
@@ -2121,6 +2122,15 @@ ul {
     font-size: 1.5rem;
     color: white;
   }
+}
+
+/* Imágenes responsive - aplican a todos los breakpoints */
+.razones__infrastructure-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 /* Colores de métricas - aplican a todos los breakpoints */
