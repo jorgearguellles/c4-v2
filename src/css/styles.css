@@ -2309,3 +2309,1307 @@ ul {
   letter-spacing: var(--letter-spacing-tight);
 }
 
+/* ====================================================================
+   SAFARI-SPECIFIC STYLES - COMPATIBILITY FIXES
+   ==================================================================== */
+
+/* Detectar Safari usando media query específica */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* ====================================================================
+     SAFARI BASE FIXES
+     ==================================================================== */
+  
+  /* Fix para font rendering en Safari */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Fix para box-sizing en Safari */
+  *, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  /* Fix para overflow en Safari */
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  
+  /* ====================================================================
+     SAFARI RESPONSIVE BREAKPOINTS - STANDARDIZED SYNTAX
+     ==================================================================== */
+  
+  /* Mobile Safari (320px - 425px) */
+  @media screen and (max-width: 425px) {
+    /* Header fixes para Safari mobile */
+    .nav__logo-text {
+      display: none;
+    }
+    
+    .btn {
+      width: auto;
+      -webkit-appearance: none;
+      border-radius: var(--border-radius-50px);
+    }
+    
+    /* Hero section Safari mobile */
+    .hero {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      min-height: calc(100vh - var(--height-nav));
+    }
+    
+    .hero__content {
+      width: 100%;
+      -webkit-order: 1;
+      order: 1;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    
+    .hero__background {
+      width: 100%;
+      -webkit-order: 2;
+      order: 2;
+      height: 50vh;
+    }
+    
+    .hero__title {
+      font-size: 3rem;
+      text-align: center;
+      line-height: 1.1;
+    }
+    
+    .hero__subtitle {
+      font-size: 3rem;
+      text-align: center;
+      line-height: 1.1;
+    }
+    
+    /* Razones section Safari mobile */
+    .razones__row {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .razones__row--1 .razones__col--text {
+      -webkit-order: 1;
+      order: 1;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .razones__row--1 .razones__col--image {
+      -webkit-order: 2;
+      order: 2;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .razones__row--1 .razones__image {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      -webkit-object-position: center;
+      object-position: center;
+    }
+    
+    /* Razones row 2 Safari mobile */
+    .razones__row--2 .razones__col--text {
+      -webkit-order: 1;
+      order: 1;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .razones__row--2 .razones__col--video {
+      -webkit-order: 2;
+      order: 2;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .razones__video-container {
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .razones__video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+    }
+    
+    /* Razones row 3 Safari mobile */
+    .razones__row--3 {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      min-height: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .razones__col--images,
+    .razones__col--metrics {
+      display: contents;
+      height: auto;
+    }
+    
+    .razones__image-top {
+      -webkit-order: 1;
+      order: 1;
+    }
+    
+    .razones__metric--1 {
+      -webkit-order: 2;
+      order: 2;
+    }
+    
+    .razones__metric--2 {
+      -webkit-order: 3;
+      order: 3;
+    }
+    
+    .razones__metric--3 {
+      -webkit-order: 4;
+      order: 4;
+    }
+    
+    .razones__image-bottom {
+      -webkit-order: 5;
+      order: 5;
+    }
+    
+    .razones__image-top,
+    .razones__image-bottom {
+      width: 100%;
+      min-height: 200px;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .razones__metric--1,
+    .razones__metric--2,
+    .razones__metric--3 {
+      width: 100%;
+      min-height: 150px;
+      padding: 1.5rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .razones__infrastructure-image {
+      width: 100%;
+      height: 100%;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      -webkit-object-position: center;
+      object-position: center;
+    }
+    
+    /* Typography Safari mobile - WCAG 2.1 AA Compliant */
+    .razones__title {
+      font-size: 2rem; /* 32px - Mínimo accesible para títulos móvil */
+      font-weight: 700;
+      text-align: center;
+      margin: 2.5rem auto 1.75rem;
+      line-height: 1.3; /* Mejorado para legibilidad */
+      max-width: 100%;
+      color: var(--color-blue-dark);
+      padding: 0 1rem;
+      letter-spacing: -0.01em; /* Mejor kerning en Safari */
+    }
+    
+    .quienes-somos__title {
+      font-size: 2rem; /* 32px - Consistente con razones__title */
+      font-weight: 700;
+      text-align: center;
+      margin: 2.5rem auto 1.75rem;
+      line-height: 1.3; /* Mejorado para legibilidad */
+      max-width: 100%;
+      color: var(--color-blue-dark);
+      padding: 0 1rem;
+      letter-spacing: -0.01em; /* Mejor kerning en Safari */
+    }
+    
+    .razones__description {
+      font-size: 1.125rem; /* 18px - Mínimo accesible para texto cuerpo */
+      font-weight: 400;
+      line-height: 1.7; /* Optimizado para Safari mobile */
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 100%;
+      color: var(--color-text-primary);
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    .razones__list {
+      text-align: left;
+      max-width: 100%;
+      margin: 2.5rem auto;
+      padding: 0 2rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .razones__list-item {
+      font-size: 1rem; /* 16px - Mínimo accesible para texto móvil */
+      font-weight: 400;
+      line-height: 1.6; /* Optimizado para Safari mobile */
+      margin-bottom: 0;
+      display: -webkit-flex;
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      color: var(--color-text-primary);
+      padding: 0.5rem 0;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    .razones__check-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 1rem;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    
+    /* Metrics typography Safari mobile - WCAG 2.1 AA Compliant */
+    .razones__metric-number {
+      font-size: 2.5rem; /* 40px - Accesible para métricas móvil */
+      font-weight: 900;
+      line-height: 1.2; /* Mejorado para Safari */
+      margin-bottom: 0.75rem;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.02em; /* Mejor kerning */
+    }
+    
+    .razones__metric-number-2 {
+      font-size: 2rem; /* 32px - Accesible para métricas móvil */
+      font-weight: 700;
+      line-height: 1.25; /* Mejorado para Safari */
+      margin-bottom: 0.5rem;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .razones__metric-number-3 {
+      font-size: 2.25rem; /* 36px - Accesible para métricas móvil */
+      font-weight: 900;
+      line-height: 1.2; /* Mejorado para Safari */
+      margin-bottom: 0.75rem;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.02em; /* Mejor kerning */
+    }
+    
+    .razones__metric-title-3 {
+      font-size: 1.75rem; /* 28px - Accesible para títulos móvil */
+      font-weight: 700;
+      line-height: 1.3; /* Mejorado para Safari */
+      color: white;
+      text-align: center;
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .razones__metric-sub-text-1 {
+      font-size: 0.875rem; /* 14px - Mínimo accesible para texto secundario */
+      font-weight: 500;
+      line-height: 1.5; /* Optimizado para Safari mobile */
+      color: white;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    /* Part2 Safari mobile - WCAG 2.1 AA Compliant */
+    .part2 {
+      font-size: 1.25rem; /* 20px - Accesible para texto destacado móvil */
+      line-height: 1.5; /* Optimizado para Safari mobile */
+      padding: 2rem 1rem;
+      margin: 1.5rem auto;
+      max-width: 95%;
+      text-align: center;
+      color: var(--color-blue-dark-2);
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    /* Testimonial Safari mobile - WCAG 2.1 AA Compliant */
+    .testimonial {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    
+    .testimonial-image {
+      -webkit-order: 1;
+      order: 1;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-image img {
+      width: 180px;
+      height: 180px;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--color-blue-border);
+    }
+    
+    .testimonial-content {
+      -webkit-order: 2;
+      order: 2;
+      max-width: 95%;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .testimonial-content__title {
+      font-size: 1.5rem; /* 24px - Accesible para títulos móvil */
+      font-weight: 800;
+      line-height: 1.4; /* Mejorado para Safari */
+      margin-bottom: 1.5rem;
+      color: var(--color-white);
+      text-align: center;
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .testimonial-content .quote {
+      font-size: 1rem; /* 16px - Mínimo accesible para texto móvil */
+      line-height: 1.6; /* Optimizado para Safari mobile */
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 0.5rem;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    .author p {
+      font-size: 0.875rem; /* 14px - Mínimo accesible para texto secundario */
+      color: var(--color-cyan-light);
+      line-height: 1.5; /* Optimizado para Safari mobile */
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    .author .company {
+      color: var(--color-cyan-bright);
+      font-weight: bold;
+      font-size: 0.875rem; /* 14px - Consistente con author p */
+    }
+    
+    /* Location Safari mobile */
+    .location {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    
+    .location-info {
+      -webkit-flex: none;
+      flex: none;
+      max-width: 95%;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0 0.5rem;
+    }
+    
+    .location-info h2 {
+      font-size: 1.5rem; /* 24px - Accesible para títulos móvil */
+      margin-bottom: 1.5rem;
+      text-align: center;
+      line-height: 1.4; /* Mejorado para Safari */
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .location-info p {
+      font-size: 1rem; /* 16px - Mínimo accesible para texto móvil */
+      line-height: 1.6; /* Optimizado para Safari mobile */
+      margin-bottom: 1.5rem;
+      color: var(--color-gray-text);
+      text-align: center;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    .location-address p {
+      font-size: 1rem; /* 16px - Mínimo accesible para texto móvil */
+      color: var(--color-gray-dark-text);
+      text-align: center;
+      line-height: 1.6; /* Optimizado para Safari mobile */
+      margin-bottom: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    .location-map {
+      -webkit-flex: none;
+      flex: none;
+      max-width: 95%;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .location-map iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      border-radius: var(--border-radius-map);
+    }
+  }
+  
+  /* Tablet Safari (426px - 768px) */
+  @media screen and (min-width: 426px) and (max-width: 768px) {
+    /* Hero section Safari tablet */
+    .hero {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: stretch;
+      min-height: calc(100vh - var(--height-nav));
+    }
+    
+    .hero__content {
+      width: 100%;
+      -webkit-order: 1;
+      order: 1;
+      padding: 3rem 2rem;
+      text-align: center;
+      background-color: #F6F5F5;
+      color: var(--color-black);
+    }
+    
+    .hero__background {
+      width: 100%;
+      -webkit-order: 2;
+      order: 2;
+      height: 60vh;
+    }
+    
+    .hero__title {
+      font-size: 4rem;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      color: var(--color-blue-dark-2);
+    }
+    
+    .hero__subtitle {
+      font-size: 4rem;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.1;
+      color: var(--color-blue-hero-subtitle);
+    }
+    
+    /* Razones section Safari tablet */
+    .razones__row {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .razones__row--1 .razones__col--text {
+      -webkit-order: 1;
+      order: 1;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .razones__row--1 .razones__col--image {
+      -webkit-order: 2;
+      order: 2;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .razones__row--1 .razones__image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      -webkit-object-position: center;
+      object-position: center;
+    }
+    
+    /* Razones row 2 Safari tablet */
+    .razones__row--2 .razones__col--text {
+      -webkit-order: 1;
+      order: 1;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .razones__row--2 .razones__col--video {
+      -webkit-order: 2;
+      order: 2;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .razones__video-container {
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .razones__video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+    }
+    
+    /* Razones row 3 Safari tablet */
+    .razones__row--3 {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      min-height: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .razones__col--images,
+    .razones__col--metrics {
+      display: contents;
+      height: auto;
+    }
+    
+    .razones__image-top {
+      -webkit-order: 1;
+      order: 1;
+    }
+    
+    .razones__metric--1 {
+      -webkit-order: 2;
+      order: 2;
+    }
+    
+    .razones__metric--2 {
+      -webkit-order: 3;
+      order: 3;
+    }
+    
+    .razones__metric--3 {
+      -webkit-order: 4;
+      order: 4;
+    }
+    
+    .razones__image-bottom {
+      -webkit-order: 5;
+      order: 5;
+    }
+    
+    .razones__image-top,
+    .razones__image-bottom {
+      width: 100%;
+      min-height: 250px;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    
+    .razones__metric--1,
+    .razones__metric--2,
+    .razones__metric--3 {
+      width: 100%;
+      min-height: 180px;
+      padding: 2rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .razones__infrastructure-image {
+      width: 100%;
+      height: 100%;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      -webkit-object-position: center;
+      object-position: center;
+    }
+    
+    /* Typography Safari tablet - WCAG 2.1 AA Compliant */
+    .razones__title {
+      font-size: 2.5rem; /* 40px - Accesible para títulos tablet */
+      font-weight: 700;
+      text-align: center;
+      margin: 3rem auto 2rem;
+      line-height: 1.3; /* Mejorado para Safari tablet */
+      max-width: 100%;
+      color: var(--color-blue-dark);
+      letter-spacing: -0.02em; /* Mejor kerning */
+    }
+    
+    .quienes-somos__title {
+      font-size: 2.5rem; /* 40px - Consistente con razones__title */
+      font-weight: 700;
+      text-align: center;
+      margin: 3rem auto 2rem;
+      line-height: 1.3; /* Mejorado para Safari tablet */
+      max-width: 100%;
+      color: var(--color-blue-dark);
+      letter-spacing: -0.02em; /* Mejor kerning */
+    }
+    
+    .razones__description {
+      font-size: 1.25rem; /* 20px - Accesible para texto cuerpo tablet */
+      font-weight: 400;
+      line-height: 1.6; /* Optimizado para Safari tablet */
+      text-align: center;
+      margin: 2.5rem auto;
+      max-width: 100%;
+      color: var(--color-text-primary);
+      padding: 0 2rem;
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .razones__list {
+      text-align: left;
+      max-width: 100%;
+      margin: 3rem auto;
+      padding: 0 3rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .razones__list-item {
+      font-size: 1.125rem; /* 18px - Accesible para texto tablet */
+      font-weight: 400;
+      line-height: 1.6; /* Optimizado para Safari tablet */
+      margin-bottom: 0;
+      display: -webkit-flex;
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      color: var(--color-text-primary);
+      padding: 0.75rem 0;
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .razones__check-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 1.25rem;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+    
+    /* Metrics typography Safari tablet - WCAG 2.1 AA Compliant */
+    .razones__metric-number {
+      font-size: 3rem; /* 48px - Accesible para métricas tablet */
+      font-weight: 900;
+      line-height: 1.2; /* Mejorado para Safari */
+      margin-bottom: 0.75rem;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.02em; /* Mejor kerning */
+    }
+    
+    .razones__metric-number-2 {
+      font-size: 2.5rem; /* 40px - Accesible para métricas tablet */
+      font-weight: 700;
+      line-height: 1.25; /* Mejorado para Safari */
+      margin-bottom: 0.5rem;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .razones__metric-number-3 {
+      font-size: 2.75rem; /* 44px - Accesible para métricas tablet */
+      font-weight: 900;
+      line-height: 1.2; /* Mejorado para Safari */
+      margin-bottom: 0.75rem;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.02em; /* Mejor kerning */
+    }
+    
+    .razones__metric-title-3 {
+      font-size: 2rem; /* 32px - Accesible para títulos tablet */
+      font-weight: 700;
+      line-height: 1.3; /* Mejorado para Safari */
+      color: white;
+      text-align: center;
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .razones__metric-sub-text-1 {
+      font-size: 1rem; /* 16px - Mínimo accesible para texto secundario */
+      font-weight: 500;
+      line-height: 1.5; /* Optimizado para Safari tablet */
+      color: white;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    /* Testimonial Safari tablet */
+    .testimonial {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    .testimonial-image {
+      -webkit-order: 1;
+      order: 1;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .testimonial-image img {
+      width: 250px;
+      height: 250px;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--color-blue-border);
+    }
+    
+    .testimonial-content {
+      -webkit-order: 2;
+      order: 2;
+      max-width: 90%;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    .testimonial-content__title {
+      font-size: 2rem; /* 32px - Accesible para títulos tablet */
+      font-weight: 800;
+      line-height: 1.4; /* Mejorado para Safari */
+      margin-bottom: 1.5rem;
+      color: var(--color-white);
+      text-align: center;
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .testimonial-content .quote {
+      font-size: 1.125rem; /* 18px - Accesible para texto tablet */
+      line-height: 1.6; /* Optimizado para Safari tablet */
+      color: var(--color-white);
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .author p {
+      font-size: 1rem; /* 16px - Mínimo accesible para texto tablet */
+      color: var(--color-cyan-light);
+      line-height: 1.5; /* Optimizado para Safari tablet */
+      text-align: center;
+      letter-spacing: 0.005em; /* Mejor legibilidad */
+    }
+    
+    .author .company {
+      color: var(--color-cyan-bright);
+      font-weight: bold;
+    }
+    
+    /* Location Safari tablet - WCAG 2.1 AA Compliant */
+    .location {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .location-info {
+      -webkit-flex: none;
+      flex: none;
+      max-width: 90%;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    .location-info h2 {
+      font-size: 2rem; /* 32px - Accesible para títulos tablet */
+      margin-bottom: 1.5rem;
+      text-align: center;
+      line-height: 1.4; /* Mejorado para Safari */
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .location-info p {
+      font-size: 1.125rem; /* 18px - Accesible para texto tablet */
+      line-height: 1.6; /* Optimizado para Safari tablet */
+      margin-bottom: 1.5rem;
+      color: var(--color-gray-text);
+      text-align: center;
+      max-width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .location-address p {
+      font-size: 1.125rem; /* 18px - Accesible para texto tablet */
+      color: var(--color-gray-dark-text);
+      text-align: center;
+      line-height: 1.6; /* Optimizado para Safari tablet */
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .location-map {
+      -webkit-flex: none;
+      flex: none;
+      max-width: 90%;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .location-map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: var(--border-radius-map);
+    }
+  }
+  
+  /* Desktop Safari (769px+) */
+  @media screen and (min-width: 769px) {
+    /* Hero section Safari desktop */
+    .hero {
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .hero__content {
+      width: 50%;
+      padding: var(--spacing-2xl);
+      z-index: 1;
+      color: var(--color-black);
+      text-align: left;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #F6F5F5;
+      height: 100vh;
+    }
+    
+    .hero__background {
+      width: 50%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .hero__image {
+      width: 100%;
+      height: 100%;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      -webkit-object-position: center;
+      object-position: center;
+    }
+    
+    .hero__title {
+      font-size: 4.5rem; /* 72px - Accesible para títulos desktop */
+      font-weight: var(--font-weight-black);
+      line-height: 1.1; /* Mejorado para Safari desktop */
+      font-style: italic;
+      letter-spacing: -0.02em; /* Mejor kerning para Safari */
+      color: var(--color-blue-dark-2);
+      margin-bottom: 20px;
+    }
+    
+    .hero__subtitle {
+      font-size: 4.5rem; /* 72px - Consistente con hero__title */
+      font-weight: var(--font-weight-black);
+      line-height: 1.1; /* Mejorado para Safari desktop */
+      font-style: italic;
+      letter-spacing: -0.02em; /* Mejor kerning para Safari */
+      color: var(--color-blue-hero-subtitle);
+      margin-top: 20px;
+    }
+    
+    /* Razones section Safari desktop */
+    .razones__row--3 {
+      display: -webkit-grid;
+      display: grid;
+      -webkit-grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+    }
+    
+    .razones__col--images,
+    .razones__col--metrics {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .razones__image-top,
+    .razones__image-bottom {
+      -webkit-flex: 1;
+      flex: 1;
+      display: -webkit-flex;
+      display: flex;
+      align-items: stretch;
+    }
+    
+    .razones__metric {
+      -webkit-flex: 1;
+      flex: 1;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+    
+    .razones__infrastructure-image {
+      width: 100%;
+      height: 100%;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      -webkit-object-position: center;
+      object-position: center;
+    }
+    
+    /* Pillars Safari desktop */
+    .pillars {
+      display: block;
+    }
+    
+    .pillars-carousel-container {
+      display: block;
+    }
+    
+    .pillars-carousel-track {
+      display: -webkit-grid;
+      display: grid;
+      -webkit-grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    
+    .pillars-duplicate {
+      display: none;
+    }
+    
+    /* Carousel Safari desktop */
+    .carousel-track {
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      gap: var(--carousel-gap);
+      -webkit-animation: carousel-desktop var(--carousel-speed-desktop) linear infinite;
+      animation: carousel-desktop var(--carousel-speed-desktop) linear infinite;
+      width: max-content;
+      padding: 2rem 0;
+    }
+    
+    .carousel-track .logo {
+      max-width: var(--logo-size-desktop);
+      max-height: var(--logo-size-desktop);
+      opacity: 0.8;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      -webkit-transition: opacity var(--transition-normal);
+      transition: opacity var(--transition-normal);
+    }
+    
+    .carousel-track .logo:hover {
+      opacity: 1;
+    }
+    
+    /* Support banner Safari desktop */
+    .support-banner {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: static;
+    }
+    
+    .support-banner-carousel-container {
+      display: -webkit-flex !important;
+      display: flex !important;
+      position: static;
+      overflow: visible;
+      width: 100%;
+    }
+    
+    .support-banner-carousel-track {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-animation: none;
+      animation: none;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .support-banner-duplicate {
+      display: none !important;
+    }
+    
+    .support-banner__item {
+      font-size: 1.25rem;
+      padding: 1.5rem;
+      -webkit-flex: 1;
+      flex: 1;
+      min-width: 0;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Testimonial Safari desktop */
+    .testimonial {
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      background-color: var(--color-blue-testimonial);
+      padding: var(--spacing-section);
+    }
+    
+    .testimonial-image img {
+      width: var(--size-testimonial-img);
+      height: var(--size-testimonial-img);
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      border-radius: var(--border-radius-testimonial);
+      border: var(--border-testimonial);
+    }
+    
+    .testimonial-content {
+      max-width: var(--width-testimonial);
+      width: 100%;
+    }
+    
+    .testimonial-content__title {
+      font-size: 3.5rem; /* 56px - Accesible para títulos desktop */
+      font-weight: 800;
+      line-height: 1.2; /* Optimizado para Safari desktop */
+      margin-bottom: 20px;
+      color: var(--color-white);
+      letter-spacing: -0.02em; /* Mejor kerning para Safari */
+    }
+    
+    .testimonial-content .quote {
+      font-size: 1.125rem; /* 18px - Accesible para texto desktop */
+      line-height: 1.6; /* Optimizado para Safari desktop */
+      color: var(--color-white);
+      margin-bottom: 25px;
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .author p {
+      font-size: 1.125rem; /* 18px - Accesible para texto desktop */
+      color: var(--color-cyan-light);
+      line-height: 1.5; /* Optimizado para Safari desktop */
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .author .company {
+      color: var(--color-cyan-bright);
+      font-weight: bold;
+    }
+    
+    /* Location Safari desktop - WCAG 2.1 AA Compliant */
+    .location {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      padding: 60px var(--gap-location);
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--gap-location);
+    }
+    
+    .location-info {
+      -webkit-flex: var(--flex-basis-location);
+      flex: var(--flex-basis-location);
+      max-width: 600px;
+    }
+    
+    .location-info h2 {
+      font-size: 2.25rem; /* 36px - Accesible para títulos desktop */
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--color-black);
+      line-height: 1.3; /* Mejorado para Safari */
+      letter-spacing: -0.01em; /* Mejor kerning */
+    }
+    
+    .location-info p {
+      font-size: 1.125rem; /* 18px - Accesible para texto desktop */
+      line-height: 1.6; /* Optimizado para Safari desktop */
+      margin-bottom: 20px;
+      color: var(--color-gray-text);
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .location-address p {
+      font-size: 1.125rem; /* 18px - Accesible para texto desktop */
+      color: var(--color-gray-dark-text);
+      letter-spacing: 0.01em; /* Mejor legibilidad */
+    }
+    
+    .location-map {
+      -webkit-flex: var(--flex-basis-location);
+      flex: var(--flex-basis-location);
+      max-width: 600px;
+    }
+    
+    .location-map iframe {
+      width: 100%;
+      height: var(--height-location-map);
+      border: none;
+      border-radius: var(--border-radius-map);
+    }
+  }
+}
+
