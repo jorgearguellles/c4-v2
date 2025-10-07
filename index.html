@@ -126,8 +126,14 @@
 
       <div class="hero__background">
         <picture>
-          <img src="./src/images/foto-hero-bg.png" alt="Instalaciones logísticas C4 con camiones de transporte"
-            class="hero__image">
+          <source media="(max-width: 425px)" srcset="./src/images/optimized/foto-hero-bg-sm.webp" type="image/webp">
+          <source media="(max-width: 768px)" srcset="./src/images/optimized/foto-hero-bg-md.webp" type="image/webp">
+          <source media="(min-width: 769px)" srcset="./src/images/optimized/foto-hero-bg-lg.webp" type="image/webp">
+          <source media="(max-width: 425px)" srcset="./src/images/optimized/foto-hero-bg-sm.avif" type="image/avif">
+          <source media="(max-width: 768px)" srcset="./src/images/optimized/foto-hero-bg-md.avif" type="image/avif">
+          <source media="(min-width: 769px)" srcset="./src/images/optimized/foto-hero-bg-lg.avif" type="image/avif">
+          <img src="./src/images/optimized/foto-hero-bg.webp"
+            alt="Instalaciones logísticas C4 con camiones de transporte" class="hero__image">
         </picture>
       </div>
     </section>

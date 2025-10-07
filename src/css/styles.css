@@ -2432,7 +2432,7 @@ ul {
       -webkit-object-fit: cover;
       object-fit: cover;
       -webkit-object-position: center;
-      object-position: center;
+      object-position: bottom;
     }
     
     /* Razones row 2 Safari mobile */
