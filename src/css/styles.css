@@ -803,6 +803,7 @@ ul {
   }
   
   /* Ocultar ícono de WhatsApp en el botón del header */
+
   /* .nav .btn__icon {
     display: none;
   } */
@@ -1539,6 +1540,7 @@ ul {
   .razones__col--images,
   .razones__col--metrics {
     display: contents;
+
     /* Deja que los hijos se organicen solos */
     height: auto;
   }
@@ -2032,6 +2034,7 @@ ul {
     opacity: 1;
   }
 }
+
 .razones__list {
   list-style: none;
   padding: 0;
@@ -2085,10 +2088,11 @@ ul {
    ==================================================================== */
 
  /* Contenedor principal con GRID en desktop SOLAMENTE */
- @media (min-width: 769px) {
+ @media (width >= 769px) {
   .razones__row--3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     /* 2 columnas iguales */
     min-height: 70vh;
     
@@ -2096,7 +2100,7 @@ ul {
 }
 
 /* Columnas como flex contenedores - SOLO DESKTOP */
-@media (min-width: 769px) {
+@media (width >= 769px) {
   .razones__col--images,
   .razones__col--metrics {
     display: flex;
@@ -2200,12 +2204,14 @@ ul {
 }
 
 /* 📱 Mobile responsive: 425px o menos */
-@media (max-width: 425px) {
+@media (width <= 425px) {
   .razones__row--3 {
     display: flex;
+
     /* Se vuelve una sola columna */
     flex-direction: column;
     min-height: auto;
+
     /* Altura según contenido */
   }
 
@@ -2213,6 +2219,7 @@ ul {
   .razones__col--images,
   .razones__col--metrics {
     display: contents;
+
     /* Deja que los hijos se organicen solos */
     height: auto;
   }
@@ -2243,8 +2250,10 @@ ul {
   .razones__image-bottom,
   .razones__metric {
     flex: none;
+
     /* Ocupan solo su contenido */
     min-height: 120px;
+
     /* Altura mínima para legibilidad */
   }
 
@@ -2314,7 +2323,7 @@ ul {
    ==================================================================== */
 
 /* Detectar Safari usando media query específica */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media screen and (resolution >= 0.001dpcm) {
   /* ====================================================================
      SAFARI BASE FIXES
      ==================================================================== */
@@ -2323,12 +2332,11 @@ ul {
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizelegibility;
   }
   
   /* Fix para box-sizing en Safari */
   *, *::before, *::after {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
   
@@ -2343,7 +2351,7 @@ ul {
      ==================================================================== */
   
   /* Mobile Safari (320px - 425px) */
-  @media screen and (max-width: 425px) {
+  @media screen and (width <= 425px) {
     /* Header fixes para Safari mobile */
     .nav__logo-text {
       display: none;
@@ -2351,20 +2359,18 @@ ul {
     
     .btn {
       width: auto;
-      -webkit-appearance: none;
+      appearance: none;
       border-radius: var(--border-radius-50px);
     }
     
     /* Hero section Safari mobile */
     .hero {
-      -webkit-flex-direction: column;
       flex-direction: column;
       min-height: calc(100vh - var(--height-nav));
     }
     
     .hero__content {
       width: 100%;
-      -webkit-order: 1;
       order: 1;
       padding: 2rem 1rem;
       text-align: center;
@@ -2372,7 +2378,6 @@ ul {
     
     .hero__background {
       width: 100%;
-      -webkit-order: 2;
       order: 2;
       height: 50vh;
     }
@@ -2391,21 +2396,17 @@ ul {
     
     /* Razones section Safari mobile */
     .razones__row {
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
     
     .razones__row--1 .razones__col--text {
-      -webkit-order: 1;
       order: 1;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -2413,12 +2414,10 @@ ul {
     }
     
     .razones__row--1 .razones__col--image {
-      -webkit-order: 2;
       order: 2;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2429,22 +2428,18 @@ ul {
       width: 100%;
       height: auto;
       max-height: 300px;
-      -webkit-object-fit: cover;
       object-fit: cover;
-      -webkit-object-position: center;
+      object-position: center;
       object-position: bottom;
     }
     
     /* Razones row 2 Safari mobile */
     .razones__row--2 .razones__col--text {
-      -webkit-order: 1;
       order: 1;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -2452,12 +2447,10 @@ ul {
     }
     
     .razones__row--2 .razones__col--video {
-      -webkit-order: 2;
       order: 2;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2475,15 +2468,12 @@ ul {
       width: 100%;
       height: 100%;
       border: none;
-      -webkit-object-fit: cover;
       object-fit: cover;
     }
     
     /* Razones row 3 Safari mobile */
     .razones__row--3 {
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       min-height: auto;
       width: 100%;
@@ -2497,27 +2487,22 @@ ul {
     }
     
     .razones__image-top {
-      -webkit-order: 1;
       order: 1;
     }
     
     .razones__metric--1 {
-      -webkit-order: 2;
       order: 2;
     }
     
     .razones__metric--2 {
-      -webkit-order: 3;
       order: 3;
     }
     
     .razones__metric--3 {
-      -webkit-order: 4;
       order: 4;
     }
     
     .razones__image-bottom {
-      -webkit-order: 5;
       order: 5;
     }
     
@@ -2525,7 +2510,6 @@ ul {
     .razones__image-bottom {
       width: 100%;
       min-height: 200px;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2538,9 +2522,7 @@ ul {
       width: 100%;
       min-height: 150px;
       padding: 1.5rem;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -2549,9 +2531,7 @@ ul {
     .razones__infrastructure-image {
       width: 100%;
       height: 100%;
-      -webkit-object-fit: cover;
       object-fit: cover;
-      -webkit-object-position: center;
       object-position: center;
     }
     
@@ -2596,9 +2576,7 @@ ul {
       max-width: 100%;
       margin: 2.5rem auto;
       padding: 0 2rem;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: flex-start;
     }
@@ -2608,7 +2586,6 @@ ul {
       font-weight: 400;
       line-height: 1.6; /* Optimizado para Safari mobile */
       margin-bottom: 0;
-      display: -webkit-flex;
       display: flex;
       align-items: flex-start;
       width: 100%;
@@ -2621,7 +2598,6 @@ ul {
       width: 20px;
       height: 20px;
       margin-right: 1rem;
-      -webkit-flex-shrink: 0;
       flex-shrink: 0;
       margin-top: 0.15rem;
     }
@@ -2690,7 +2666,6 @@ ul {
     
     /* Testimonial Safari mobile - WCAG 2.1 AA Compliant */
     .testimonial {
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -2700,9 +2675,7 @@ ul {
     }
     
     .testimonial-image {
-      -webkit-order: 1;
       order: 1;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2712,14 +2685,12 @@ ul {
     .testimonial-image img {
       width: 180px;
       height: 180px;
-      -webkit-object-fit: cover;
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid var(--color-blue-border);
     }
     
     .testimonial-content {
-      -webkit-order: 2;
       order: 2;
       max-width: 95%;
       width: 100%;
@@ -2768,7 +2739,6 @@ ul {
     
     /* Location Safari mobile */
     .location {
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -2778,7 +2748,6 @@ ul {
     }
     
     .location-info {
-      -webkit-flex: none;
       flex: none;
       max-width: 95%;
       width: 100%;
@@ -2818,7 +2787,6 @@ ul {
     }
     
     .location-map {
-      -webkit-flex: none;
       flex: none;
       max-width: 95%;
       width: 100%;
@@ -2834,10 +2802,9 @@ ul {
   }
   
   /* Tablet Safari (426px - 768px) */
-  @media screen and (min-width: 426px) and (max-width: 768px) {
+  @media screen and (width >= 426px) and (width <= 768px) {
     /* Hero section Safari tablet */
     .hero {
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: stretch;
       min-height: calc(100vh - var(--height-nav));
@@ -2845,7 +2812,6 @@ ul {
     
     .hero__content {
       width: 100%;
-      -webkit-order: 1;
       order: 1;
       padding: 3rem 2rem;
       text-align: center;
@@ -2855,7 +2821,6 @@ ul {
     
     .hero__background {
       width: 100%;
-      -webkit-order: 2;
       order: 2;
       height: 60vh;
     }
@@ -2878,21 +2843,17 @@ ul {
     
     /* Razones section Safari tablet */
     .razones__row {
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
     
     .razones__row--1 .razones__col--text {
-      -webkit-order: 1;
       order: 1;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -2900,12 +2861,10 @@ ul {
     }
     
     .razones__row--1 .razones__col--image {
-      -webkit-order: 2;
       order: 2;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2916,22 +2875,17 @@ ul {
       width: 100%;
       height: auto;
       max-height: 400px;
-      -webkit-object-fit: cover;
       object-fit: cover;
-      -webkit-object-position: center;
       object-position: center;
     }
     
     /* Razones row 2 Safari tablet */
     .razones__row--2 .razones__col--text {
-      -webkit-order: 1;
       order: 1;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -2939,12 +2893,10 @@ ul {
     }
     
     .razones__row--2 .razones__col--video {
-      -webkit-order: 2;
       order: 2;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2962,15 +2914,12 @@ ul {
       width: 100%;
       height: 100%;
       border: none;
-      -webkit-object-fit: cover;
       object-fit: cover;
     }
     
     /* Razones row 3 Safari tablet */
     .razones__row--3 {
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       min-height: auto;
       width: 100%;
@@ -2984,27 +2933,22 @@ ul {
     }
     
     .razones__image-top {
-      -webkit-order: 1;
       order: 1;
     }
     
     .razones__metric--1 {
-      -webkit-order: 2;
       order: 2;
     }
     
     .razones__metric--2 {
-      -webkit-order: 3;
       order: 3;
     }
     
     .razones__metric--3 {
-      -webkit-order: 4;
       order: 4;
     }
     
     .razones__image-bottom {
-      -webkit-order: 5;
       order: 5;
     }
     
@@ -3012,7 +2956,6 @@ ul {
     .razones__image-bottom {
       width: 100%;
       min-height: 250px;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -3026,9 +2969,7 @@ ul {
       width: 100%;
       min-height: 180px;
       padding: 2rem;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -3037,9 +2978,7 @@ ul {
     .razones__infrastructure-image {
       width: 100%;
       height: 100%;
-      -webkit-object-fit: cover;
       object-fit: cover;
-      -webkit-object-position: center;
       object-position: center;
     }
     
@@ -3083,9 +3022,7 @@ ul {
       max-width: 100%;
       margin: 3rem auto;
       padding: 0 3rem;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: flex-start;
     }
@@ -3095,7 +3032,6 @@ ul {
       font-weight: 400;
       line-height: 1.6; /* Optimizado para Safari tablet */
       margin-bottom: 0;
-      display: -webkit-flex;
       display: flex;
       align-items: flex-start;
       width: 100%;
@@ -3108,7 +3044,6 @@ ul {
       width: 24px;
       height: 24px;
       margin-right: 1.25rem;
-      -webkit-flex-shrink: 0;
       flex-shrink: 0;
       margin-top: 0.125rem;
     }
@@ -3165,7 +3100,6 @@ ul {
     
     /* Testimonial Safari tablet */
     .testimonial {
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -3175,9 +3109,7 @@ ul {
     }
     
     .testimonial-image {
-      -webkit-order: 1;
       order: 1;
-      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -3186,14 +3118,12 @@ ul {
     .testimonial-image img {
       width: 250px;
       height: 250px;
-      -webkit-object-fit: cover;
       object-fit: cover;
       border-radius: 50%;
       border: 3px solid var(--color-blue-border);
     }
     
     .testimonial-content {
-      -webkit-order: 2;
       order: 2;
       max-width: 90%;
       width: 100%;
@@ -3238,7 +3168,6 @@ ul {
     
     /* Location Safari tablet - WCAG 2.1 AA Compliant */
     .location {
-      -webkit-flex-direction: column;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -3248,7 +3177,6 @@ ul {
     }
     
     .location-info {
-      -webkit-flex: none;
       flex: none;
       max-width: 90%;
       width: 100%;
@@ -3286,7 +3214,6 @@ ul {
     }
     
     .location-map {
-      -webkit-flex: none;
       flex: none;
       max-width: 90%;
       width: 100%;
@@ -3302,10 +3229,9 @@ ul {
   }
   
   /* Desktop Safari (769px+) */
-  @media screen and (min-width: 769px) {
+  @media screen and (width >= 769px) {
     /* Hero section Safari desktop */
     .hero {
-      display: -webkit-flex;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -3317,9 +3243,7 @@ ul {
       z-index: 1;
       color: var(--color-black);
       text-align: left;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       justify-content: center;
       background-color: #F6F5F5;
@@ -3335,9 +3259,7 @@ ul {
     .hero__image {
       width: 100%;
       height: 100%;
-      -webkit-object-fit: cover;
       object-fit: cover;
-      -webkit-object-position: center;
       object-position: center;
     }
     
@@ -3365,33 +3287,26 @@ ul {
     .razones__row--3 {
       display: -webkit-grid;
       display: grid;
-      -webkit-grid-template-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
       min-height: 70vh;
     }
     
     .razones__col--images,
     .razones__col--metrics {
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: column;
       flex-direction: column;
       height: 100%;
     }
     
     .razones__image-top,
     .razones__image-bottom {
-      -webkit-flex: 1;
       flex: 1;
-      display: -webkit-flex;
       display: flex;
       align-items: stretch;
     }
     
     .razones__metric {
-      -webkit-flex: 1;
       flex: 1;
-      display: -webkit-flex;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3403,9 +3318,7 @@ ul {
     .razones__infrastructure-image {
       width: 100%;
       height: 100%;
-      -webkit-object-fit: cover;
       object-fit: cover;
-      -webkit-object-position: center;
       object-position: center;
     }
     
@@ -3421,7 +3334,6 @@ ul {
     .pillars-carousel-track {
       display: -webkit-grid;
       display: grid;
-      -webkit-grid-template-columns: repeat(4, 1fr);
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
     }
@@ -3432,11 +3344,9 @@ ul {
     
     /* Carousel Safari desktop */
     .carousel-track {
-      display: -webkit-flex;
       display: flex;
       align-items: center;
       gap: var(--carousel-gap);
-      -webkit-animation: carousel-desktop var(--carousel-speed-desktop) linear infinite;
       animation: carousel-desktop var(--carousel-speed-desktop) linear infinite;
       width: max-content;
       padding: 2rem 0;
@@ -3446,9 +3356,7 @@ ul {
       max-width: var(--logo-size-desktop);
       max-height: var(--logo-size-desktop);
       opacity: 0.8;
-      -webkit-flex-shrink: 0;
       flex-shrink: 0;
-      -webkit-transition: opacity var(--transition-normal);
       transition: opacity var(--transition-normal);
     }
     
@@ -3458,9 +3366,7 @@ ul {
     
     /* Support banner Safari desktop */
     .support-banner {
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: row;
       flex-direction: row;
       justify-content: center;
       align-items: center;
@@ -3469,7 +3375,6 @@ ul {
     }
     
     .support-banner-carousel-container {
-      display: -webkit-flex !important;
       display: flex !important;
       position: static;
       overflow: visible;
@@ -3477,9 +3382,7 @@ ul {
     }
     
     .support-banner-carousel-track {
-      display: -webkit-flex;
       display: flex;
-      -webkit-animation: none;
       animation: none;
       width: 100%;
       justify-content: center;
@@ -3493,10 +3396,8 @@ ul {
     .support-banner__item {
       font-size: 1.25rem;
       padding: 1.5rem;
-      -webkit-flex: 1;
       flex: 1;
       min-width: 0;
-      display: -webkit-flex;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3504,11 +3405,9 @@ ul {
     
     /* Testimonial Safari desktop */
     .testimonial {
-      display: -webkit-flex;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
-      -webkit-flex-wrap: wrap;
       flex-wrap: wrap;
       background-color: var(--color-blue-testimonial);
       padding: var(--spacing-section);
@@ -3517,7 +3416,6 @@ ul {
     .testimonial-image img {
       width: var(--size-testimonial-img);
       height: var(--size-testimonial-img);
-      -webkit-object-fit: cover;
       object-fit: cover;
       border-radius: var(--border-radius-testimonial);
       border: var(--border-testimonial);
@@ -3559,9 +3457,7 @@ ul {
     
     /* Location Safari desktop - WCAG 2.1 AA Compliant */
     .location {
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-wrap: wrap;
       flex-wrap: wrap;
       padding: 60px var(--gap-location);
       align-items: center;
@@ -3570,7 +3466,6 @@ ul {
     }
     
     .location-info {
-      -webkit-flex: var(--flex-basis-location);
       flex: var(--flex-basis-location);
       max-width: 600px;
     }
@@ -3599,7 +3494,6 @@ ul {
     }
     
     .location-map {
-      -webkit-flex: var(--flex-basis-location);
       flex: var(--flex-basis-location);
       max-width: 600px;
     }
