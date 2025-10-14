@@ -49,7 +49,7 @@ lighthouse-report.html
 *.lighthouse.json
 
 # Image optimization outputs
-src/images/optimized/
+# Note: src/images/optimized/ is now tracked for GitHub Pages deployment
 
 # Compressed files
 *.zip
