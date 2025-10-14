@@ -3533,7 +3533,7 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(0 0 0 / 0%);
   transition: background-color var(--transition-normal);
   cursor: pointer;
   z-index: 10;
@@ -3544,7 +3544,7 @@ ul {
 /* Overlay hover state - darken background */
 .location-map-overlay:hover,
 .location-map-overlay:focus {
-  background-color: rgba(0, 176, 74, 0.15);
+  background-color: rgb(0 176 74 / 15%);
   outline: none;
 }
 
@@ -3560,7 +3560,7 @@ ul {
   opacity: 0;
   transform: scale(0.8);
   transition: all var(--transition-normal);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
 }
 
 /* Icon SVG styling */
@@ -3588,7 +3588,7 @@ ul {
   opacity: 0;
   transform: translateY(10px);
   transition: all var(--transition-normal);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
   white-space: nowrap;
 }
 
@@ -3692,7 +3692,7 @@ ul {
     
     /* Ensure overlay works on touch devices */
     .location-map-overlay {
-      -webkit-tap-highlight-color: rgba(0, 176, 74, 0.2);
+      -webkit-tap-highlight-color: rgb(0 176 74 / 20%);
     }
   }
   
@@ -3712,7 +3712,7 @@ ul {
     }
     
     .location-map-overlay {
-      -webkit-tap-highlight-color: rgba(0, 176, 74, 0.2);
+      -webkit-tap-highlight-color: rgb(0 176 74 / 20%);
     }
   }
   
