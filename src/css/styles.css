@@ -3502,3 +3502,231 @@ ul {
   }
 }
 
+/* ====================================================================
+   LOCATION MAP OVERLAY - CLICKABLE MAP TO GOOGLE MAPS
+   ==================================================================== */
+
+/* Wrapper container for map and overlay */
+.location-map-wrapper {
+  position: relative;
+  flex: var(--flex-basis-location);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Map container - reset flex properties since wrapper handles them now */
+.location-map-wrapper .location-map {
+  flex: none;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Overlay link - covers entire map */
+.location-map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color var(--transition-normal);
+  cursor: pointer;
+  z-index: 10;
+  border-radius: var(--border-radius-map);
+  text-decoration: none;
+}
+
+/* Overlay hover state - darken background */
+.location-map-overlay:hover,
+.location-map-overlay:focus {
+  background-color: rgba(0, 176, 74, 0.15);
+  outline: none;
+}
+
+/* Icon container - initially hidden */
+.location-map-overlay__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-green-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon SVG styling */
+.location-map-overlay__icon svg {
+  color: var(--color-white);
+  width: 24px;
+  height: 24px;
+}
+
+/* Show icon on hover */
+.location-map-overlay:hover .location-map-overlay__icon,
+.location-map-overlay:focus .location-map-overlay__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Text label - initially hidden */
+.location-map-overlay__text {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  background-color: var(--color-green-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-50px);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+/* Show text on hover */
+.location-map-overlay:hover .location-map-overlay__text,
+.location-map-overlay:focus .location-map-overlay__text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus state for accessibility */
+.location-map-overlay:focus {
+  outline: 3px solid var(--color-green-primary);
+  outline-offset: 2px;
+}
+
+/* ====================================================================
+   LOCATION MAP OVERLAY - MOBILE RESPONSIVE (425px and below)
+   ==================================================================== */
+@media (width <= 425px) {
+  .location-map-wrapper {
+    flex: none;
+    max-width: 95%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .location-map-wrapper .location-map {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .location-map-overlay__icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .location-map-overlay__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .location-map-overlay__text {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* ====================================================================
+   LOCATION MAP OVERLAY - TABLET RESPONSIVE (426px - 768px)
+   ==================================================================== */
+@media (width >= 426px) and (width <= 768px) {
+  .location-map-wrapper {
+    flex: none;
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .location-map-wrapper .location-map {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .location-map-overlay__icon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .location-map-overlay__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .location-map-overlay__text {
+    font-size: 0.95rem;
+    padding: 0.45rem 0.9rem;
+  }
+}
+
+/* ====================================================================
+   LOCATION MAP OVERLAY - SAFARI COMPATIBILITY
+   ==================================================================== */
+@media screen and (resolution >= 0.001dpcm) {
+  /* Mobile Safari */
+  @media screen and (width <= 425px) {
+    .location-map-wrapper {
+      flex: none;
+      max-width: 95%;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .location-map-wrapper .location-map {
+      flex: none;
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    /* Ensure overlay works on touch devices */
+    .location-map-overlay {
+      -webkit-tap-highlight-color: rgba(0, 176, 74, 0.2);
+    }
+  }
+  
+  /* Tablet Safari */
+  @media screen and (width >= 426px) and (width <= 768px) {
+    .location-map-wrapper {
+      flex: none;
+      max-width: 90%;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .location-map-wrapper .location-map {
+      flex: none;
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    .location-map-overlay {
+      -webkit-tap-highlight-color: rgba(0, 176, 74, 0.2);
+    }
+  }
+  
+  /* Desktop Safari */
+  @media screen and (width >= 769px) {
+    .location-map-wrapper {
+      flex: var(--flex-basis-location);
+      max-width: 600px;
+    }
+    
+    .location-map-wrapper .location-map {
+      flex: none;
+      max-width: 100%;
+    }
+  }
+}
+
