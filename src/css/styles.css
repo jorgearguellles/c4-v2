@@ -1038,7 +1038,6 @@ ul {
   
   .razones__check-icon {
     width: 20px;
-    height: 20px;
     margin-right: 1rem;
     flex-shrink: 0;
     margin-top: 0.15rem;
@@ -1660,10 +1659,9 @@ ul {
   
   .razones__check-icon {
     width: 24px;
-    height: 24px;
     margin-right: 1.25rem;
     flex-shrink: 0;
-    margin-top: 0.125rem;
+    margin-top: 8px;
   }
   
   /* Tipografía de métricas optimizada para tablet */
@@ -2052,10 +2050,9 @@ ul {
 
 .razones__check-icon {
   width: 20px;
-  height: 20px;
   margin-right: var(--spacing-md);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 16px;
 }
 
 .razones__image {
@@ -2596,7 +2593,6 @@ ul {
     
     .razones__check-icon {
       width: 20px;
-      height: 20px;
       margin-right: 1rem;
       flex-shrink: 0;
       margin-top: 0.15rem;
@@ -3042,7 +3038,6 @@ ul {
     
     .razones__check-icon {
       width: 24px;
-      height: 24px;
       margin-right: 1.25rem;
       flex-shrink: 0;
       margin-top: 0.125rem;
